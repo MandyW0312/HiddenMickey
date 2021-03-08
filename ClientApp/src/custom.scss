@@ -9,4 +9,53 @@ html {
 body {
   margin: 0;
   min-height: 100%;
+  background-image: url('https://i.pinimg.com/236x/25/2a/80/252a809d4ba0b865ab62680789f30123--minnie.jpg');
+  background-size: cover;
+}
+
+header {
+  background-color: #4734cc;
+  text-align: center;
+  color: #ff86b3;
+  padding: 0.25rem;
+}
+
+main {
+  & section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    & button {
+      background-color: black;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &.browse {
+        border-radius: 50%;
+        width: 70px;
+        height: 70px;
+      }
+      &.add {
+        border-radius: 50%;
+        width: 70px;
+        height: 70px;
+      }
+      &.scavenger {
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+      }
+    }
+  }
+  & section.second {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+footer {
+  color: #4734cc;
+  background-color: #ff86b3;
 }
