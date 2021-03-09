@@ -7,18 +7,18 @@ export function HiddenMickeys() {
         <h2>View All Hidden Mickeys</h2>
       </header>
       <article className="hmDropdown">
-        <div class="dropdown">
+        <div className="dropdown">
           <span>Park Name</span>
-          <div class="dropdown-content">
+          <div className="dropdown-content">
             <p>Magic Kingdom</p>
             <p>Epcot</p>
             <p>Hollywood Studios</p>
             <p>Animal Kingdom</p>
           </div>
         </div>
-        <div class="dropdown">
+        <div className="dropdown">
           <span>Area of the Park</span>
-          <div class="dropdown-content">
+          <div className="dropdown-content">
             <p>Main Street USA</p>
             <p>Fantasyland</p>
             <p>Tomorrowland</p>

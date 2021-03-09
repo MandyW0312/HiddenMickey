@@ -9,9 +9,9 @@ export function AddAHiddenMickeyPage() {
       <form>
         <ul className="hidden-mickey">
           <li>
-            <div class="dropdown">
+            <div className="dropdown">
               <span>Park Name</span>
-              <div class="dropdown-content">
+              <div className="dropdown-content">
                 <p>Magic Kingdom</p>
                 <p>Epcot</p>
                 <p>Hollywood Studios</p>
@@ -20,9 +20,9 @@ export function AddAHiddenMickeyPage() {
             </div>
           </li>
           <li>
-            <div class="dropdown">
+            <div className="dropdown">
               <span>Area of the Park</span>
-              <div class="dropdown-content">
+              <div className="dropdown-content">
                 <p>Main Street USA</p>
                 <p>Fantasyland</p>
                 <p>Tomorrowland</p>

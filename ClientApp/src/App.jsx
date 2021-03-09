@@ -8,5 +8,5 @@ import { ScavengerHunt } from './pages/ScavengerHunt'
 import { UpdateHiddenMickeyPage } from './pages/UpdateHiddenMickeyPage'
 
 export function App() {
-  return <AddAHiddenMickeyPage />
+  return <HiddenMickeys />
 }

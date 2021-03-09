@@ -7,9 +7,9 @@ export function ScavengerHunt() {
         <h2>Scavenger Hunt</h2>
       </header>
       <article className="shDropdown">
-        <div class="dropdown">
+        <div className="dropdown">
           <span>Park Name</span>
-          <div class="dropdown-content">
+          <div className="dropdown-content">
             <p>Magic Kingdom</p>
             <p>Epcot</p>
             <p>Hollywood Studios</p>
