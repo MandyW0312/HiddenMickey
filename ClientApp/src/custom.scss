@@ -108,7 +108,7 @@ section {
 
 // Specific Hidden Mickey Page
 
-ul {
+ul.hidden-mickey {
   background-color: aquamarine;
   font-size: 16px;
   list-style-image: url('https://img.icons8.com/metro/26/000000/animation.png');
@@ -117,7 +117,7 @@ ul {
   justify-content: center;
 }
 
-article {
+article.buttons {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -129,6 +129,31 @@ button {
   width: 80px;
   margin: 3px;
   border-radius: 20px;
+}
+
+// Scavenger Hunt Page
+
+p.disclaimer {
+  background-color: yellow;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+ul.scavenger-hunt {
+  background-color: white;
+  list-style: none;
+  padding: 0.5rem;
+  li {
+    h4 {
+      margin-left: 5px;
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+    h4 + p {
+      border-bottom: thin solid black;
+      padding: 5px;
+    }
+  }
 }
 
 footer {

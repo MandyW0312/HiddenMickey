@@ -6,7 +6,7 @@ export function HiddenMickey() {
       <header>
         <h2>Hidden Mickey #ID</h2>
       </header>
-      <ul>
+      <ul className="hidden-mickey">
         <li>Park: Magic Kingdom</li>
         <li>Area: Main Street USA</li>
         <li>Location: Railroad Station</li>
@@ -19,7 +19,7 @@ export function HiddenMickey() {
           design running along the roof.
         </li>
       </ul>
-      <article>
+      <article className="buttons">
         <button>Back</button>
         <button>Delete</button>
         <button>Home</button>
