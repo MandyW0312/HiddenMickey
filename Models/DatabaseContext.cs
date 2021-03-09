@@ -14,7 +14,9 @@ namespace HiddenMickey.Models
         private static bool LOG_SQL_STATEMENTS_IN_DEVELOPMENT = false;
 
         // Add database tables here
-
+        public DbSet<HiddenMickey> HiddenMickeys { get; set; }
+        
+        
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
