@@ -15,12 +15,6 @@ export function Home() {
           <button className="scavenger">Scavenger Hunt</button>
         </section>
       </main>
-      <footer>
-        <p>
-          &copy; This Hidden Mickey App was created with &hearts; by Mandy Wade
-          2021
-        </p>
-      </footer>
     </>
   )
 }
