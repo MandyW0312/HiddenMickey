@@ -14,9 +14,9 @@ body {
 }
 
 header {
-  background-color: #4734cc;
+  background-color: #1c4688;
   text-align: center;
-  color: #ff86b3;
+  color: #b497fb;
   padding: 0.25rem;
 }
 
@@ -62,7 +62,9 @@ article.hmDropdown {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #ff776f;
+  background-color: #613e92;
+  width: 175px;
+  margin-left: 100px;
 }
 
 .dropdown {
@@ -88,19 +90,25 @@ article.hmDropdown {
   display: block;
 }
 
-section {
-  background-color: #ff776f;
+ul {
+  background-color: #4157a9;
+  max-width: 275px;
+  margin-left: 50px;
+  padding: 0;
+  list-style: none;
 
   h4 {
     margin: 0.25rem;
   }
+}
 
-  p {
+li {
+  h4 {
     margin: 0;
     padding: 0.25rem;
 
-    & + h4 {
-      border-top: thin solid black;
+    & + p {
+      border-bottom: thin solid black;
       padding: 4px;
     }
   }

@@ -1,6 +1,17 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 export function HiddenMickeys() {
+  const [mickeys, setMickeys] = useState([])
+
+  useEffect(function () {
+    async function fetchMickeys() {
+      const response = await fetch('/api/HiddenMickeys')
+      const json = await response.json()
+      setMickeys(json)
+    }
+    fetchMickeys()
+  }, [])
+
   return (
     <>
       <header>
@@ -28,36 +39,17 @@ export function HiddenMickeys() {
           </div>
         </div>
       </article>
-      <section>
-        <h4>Location: Curtain Call Collectibles</h4>
-        <p>
-          Clue: Adjacent to the Town Square Theater; the shop features a
-          collection of Disney-themed goods and hats. Find a sewing machine
-          stand located at the front of the store with a Mary Poppins dress on
-          display.
-        </p>
-        <h4>Location: Emporium</h4>
-        <p>
-          Clue: In the back portion of the store that connects with a wide
-          street, locate a wall mural featuring a turn-of-the century display of
-          what life was like over a hundred years ago.
-        </p>
-        <h4>Location: Main Street Confectionary</h4>
-        <p>
-          Clue: For those that have a sweet tooth, this is the place for you.
-          Gear up for a Hidden Mickey in the window.
-        </p>
-        <h4>Location: Plaza Restaurant</h4>
-        <p>
-          Clue: Inside, there is a Hidden Mickey located in one of the pictures
-          on the far right wall of the restaurant.
-        </p>
-        <h4>Location: Railroad Station</h4>
-        <p>
-          Clue: The train station above the Park’s entry area has a Hidden
-          Mickey situated along the top portion of the train station itself.
-        </p>
-      </section>
+
+      <ul className="results">
+        {mickeys.map(function (mickey) {
+          return (
+            <li key={mickey.id}>
+              <h4>Location: Curtain Call Collectibles</h4>
+              <p>Clue: {mickey.clue}</p>
+            </li>
+          )
+        })}
+      </ul>
     </>
   )
 }
