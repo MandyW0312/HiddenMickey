@@ -31,7 +31,7 @@ namespace HiddenMickey.Controllers
         // Returns a list of all your HiddenMickeys
         //
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<HiddenMickey>>> GetHiddenMickeys()
+        public async Task<ActionResult<IEnumerable<HiddenMickey.Models.HiddenMickey>>> GetHiddenMickeys()
         {
             // Uses the database context in `_context` to request all of the HiddenMickeys, sort
             // them by row id and return them as a JSON array.
@@ -45,7 +45,7 @@ namespace HiddenMickey.Controllers
         // to grab the id from the URL. It is then made available to us as the `id` argument to the method.
         //
         [HttpGet("{id}")]
-        public async Task<ActionResult<HiddenMickey>> GetHiddenMickey(int id)
+        public async Task<ActionResult<HiddenMickey.Models.HiddenMickey>> GetHiddenMickey(int id)
         {
             // Find the hiddenMickey in the database using `FindAsync` to look it up by id
             var hiddenMickey = await _context.HiddenMickeys.FindAsync(id);
@@ -73,7 +73,7 @@ namespace HiddenMickey.Controllers
         // new values for the record.
         //
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutHiddenMickey(int id, HiddenMickey hiddenMickey)
+        public async Task<IActionResult> PutHiddenMickey(int id, HiddenMickey.Models.HiddenMickey hiddenMickey)
         {
             // If the ID in the URL does not match the ID in the supplied request body, return a bad request
             if (id != hiddenMickey.Id)
@@ -122,7 +122,7 @@ namespace HiddenMickey.Controllers
         // new values for the record.
         //
         [HttpPost]
-        public async Task<ActionResult<HiddenMickey>> PostHiddenMickey(HiddenMickey hiddenMickey)
+        public async Task<ActionResult<HiddenMickey.Models.HiddenMickey>> PostHiddenMickey(HiddenMickey.Models.HiddenMickey hiddenMickey)
         {
             // Indicate to the database context we want to add this new record
             _context.HiddenMickeys.Add(hiddenMickey);
