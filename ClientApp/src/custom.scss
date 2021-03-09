@@ -20,6 +20,7 @@ header {
   padding: 0.25rem;
 }
 
+//Home Page
 main {
   & section {
     display: grid;
@@ -55,7 +56,9 @@ main {
   }
 }
 
-article {
+//View All Hidden Mickeys Page
+
+article.hmDropdown {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -101,6 +104,31 @@ section {
       padding: 4px;
     }
   }
+}
+
+// Specific Hidden Mickey Page
+
+ul {
+  background-color: aquamarine;
+  font-size: 16px;
+  list-style-image: url('https://img.icons8.com/metro/26/000000/animation.png');
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  background-color: cadetblue;
+  color: whitesmoke;
+  width: 80px;
+  margin: 3px;
+  border-radius: 20px;
 }
 
 footer {

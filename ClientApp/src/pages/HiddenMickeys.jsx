@@ -6,7 +6,7 @@ export function HiddenMickeys() {
       <header>
         <h2>View All Hidden Mickeys</h2>
       </header>
-      <article>
+      <article className="hmDropdown">
         <div class="dropdown">
           <span>Park Name</span>
           <div class="dropdown-content">
