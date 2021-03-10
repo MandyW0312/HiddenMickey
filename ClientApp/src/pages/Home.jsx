@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 
 export function Home() {
   return (
-    <>
-      <header>
+    <div>
+      <header className="home-header">
         <h1>Hidden Mickeys</h1>
       </header>
       <main>
@@ -28,6 +28,6 @@ export function Home() {
           </p>
         </footer>
       </main>
-    </>
+    </div>
   )
 }

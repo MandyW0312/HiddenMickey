@@ -22,14 +22,14 @@ a:active {
   text-decoration: none;
 }
 
-header {
-  background-color: #1c4688;
+//Home Page
+.home-header {
+  background-color: #f20505;
   text-align: center;
-  color: #b497fb;
+  color: black;
   padding: 0.25rem;
 }
 
-//Home Page
 main {
   & section {
     display: grid;
@@ -187,8 +187,8 @@ p.error {
 }
 
 footer {
-  color: #4734cc;
-  background-color: #ff86b3;
+  color: black;
+  background-color: #f9d70b;
   margin-top: 80px;
   padding: 0.25rem;
   text-align: center;
