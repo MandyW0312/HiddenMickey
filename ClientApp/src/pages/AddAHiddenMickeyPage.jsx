@@ -1,6 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export function AddAHiddenMickeyPage() {
+  const [newMickey, setNewMickey] = useState({
+    clue: '',
+    hint: '',
+  })
+
+  function handleStringFieldChange(event) {
+    const value = event.target.value
+    const fieldName = event.target.name
+
+    const updatedMickey = { ...newMickey, [fieldName]: value }
+
+    setNewMickey(updatedMickey)
+  }
+
+  async function handleFormSubmit(event) {
+    event.preventDefault()
+
+    const response = await fetch('/api/HiddenMickeys', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(newMickey),
+    })
+
+    const json = await response.json()
+    console.log(json)
+  }
+
   return (
     <>
       <header>
@@ -34,36 +62,43 @@ export function AddAHiddenMickeyPage() {
           </li>
 
           <li>
-            <label htmlFor="Location">Location: </label>
+            <label htmlFor="location">Location: </label>
             <textarea
               rows="2"
               cols="30"
-              name="Location"
+              name="location"
               placeholder="Ride Name, Restaurant Name, Shop Name..."
             ></textarea>
           </li>
           <li>
-            <label htmlFor="Clue">Clue: </label>
+            <label htmlFor="clue">Clue: </label>
             <textarea
               rows="10"
               cols="30"
-              name="Clue"
+              name="clue"
+              value={newMickey.clue}
+              onChange={handleStringFieldChange}
               placeholder="General area of where the Hidden Mickey is..."
             ></textarea>
           </li>
           <li>
-            <label htmlFor="Hint">Hint: </label>
+            <label htmlFor="hint">Hint: </label>
             <textarea
               rows="10"
               cols="30"
-              name="Hint"
+              name="hint"
+              value={newMickey.hint}
+              onChange={handleStringFieldChange}
               placeholder="More specific to where the Hidden Mickey is..."
             ></textarea>
           </li>
         </ul>
       </form>
       <article className="buttons">
-        <button>Submit</button>
+        <button onClick={handleFormSubmit}>Submit</button>
+        <button>
+          <Link to={'/home'}>Home</Link>
+        </button>
       </article>
     </>
   )

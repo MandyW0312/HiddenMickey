@@ -1,10 +1,29 @@
-import React from 'react'
+import React, { useEffect, useState, useParams } from 'react'
+import { Link } from 'react-router-dom'
 
 export function UpdateHiddenMickeyPage() {
+  const [updateMickey, setUpdateMickey] = useState({
+    id: undefined,
+  })
+
+  // const params = useParams()
+
+  // useEffect(
+  //   function () {
+  //     async function fetchMickey() {
+  //       const response = await fetch(`/api/HiddenMickeys/${params.id}`)
+  //       const json = await response.json()
+  //       setUpdateMickey(json)
+  //     }
+  //     fetchMickey()
+  //   },
+  //   [params.id]
+  // )
+
   return (
     <>
       <header>
-        <h2>Hidden Mickey #ID</h2>
+        <h2>Hidden Mickey #{updateMickey.id}</h2>
       </header>
       <p className="disclaimer">Thank you for updating our error!</p>
       <ul className="hidden-mickey">
@@ -24,21 +43,22 @@ export function UpdateHiddenMickeyPage() {
           <li>
             <label htmlFor="Clue">Clue: </label>
             <textarea rows="10" cols="30" name="Clue">
-              The train station above the Park’s entry area has a Hidden Mickey
-              situated along the top portion of the train station itself.
+              {updateMickey.clue}
             </textarea>
           </li>
           <li>
             <label htmlFor="Hint">Hint: </label>
             <textarea rows="10" cols="30" name="Hint">
-              The wrought iron gate work has a repeating Hidden Mickey head
-              design running along the roof.
+              {updateMickey.hint}
             </textarea>
           </li>
         </form>
       </ul>
       <article className="buttons">
         <button>Submit</button>
+        <button>
+          <Link to={'/home'}>Home</Link>
+        </button>
       </article>
     </>
   )

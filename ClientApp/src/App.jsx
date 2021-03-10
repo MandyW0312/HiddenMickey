@@ -22,7 +22,7 @@ export function App() {
           <Route exact path="/api/HiddenMickeys/:id">
             <HiddenMickey />
           </Route>
-          <Route exact path="/update">
+          <Route exact path="/update/:id">
             <UpdateHiddenMickeyPage />
           </Route>
           <Route exact path="/add">

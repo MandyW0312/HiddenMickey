@@ -54,6 +54,11 @@ export function HiddenMickeys() {
           )
         })}
       </ul>
+      <article className="buttons">
+        <button>
+          <Link to={'/home'}>Home</Link>
+        </button>
+      </article>
     </>
   )
 }
