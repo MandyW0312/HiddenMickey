@@ -37,6 +37,9 @@ export function UpdateHiddenMickeyPage() {
           </li>
         </form>
       </ul>
+      <article className="buttons">
+        <button>Submit</button>
+      </article>
     </>
   )
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Route, Switch } from 'react-router-dom'
 import { AddAHiddenMickeyPage } from './pages/AddAHiddenMickeyPage'
 import './custom.scss'
 import { HiddenMickey } from './pages/HiddenMickey'
@@ -9,26 +10,32 @@ import { UpdateHiddenMickeyPage } from './pages/UpdateHiddenMickeyPage'
 
 export function App() {
   return (
-    // <>
-    //   <header>
-    //     <h1></h1>
-    //   </header>
-    //   <section>
-    //     <Switch>
-    //       <Route exact path="/"></Route>
-    //       <Route exact path="/"></Route>
-    //       <Route exact path="*">
-    //         Sorry, this page is Not Found!
-    //       </Route>
-    //     </Switch>
-    //   </section>
-    //   <footer>
-    //     <p>
-    //       &copy; This Hidden Mickey App was created with &hearts; by Mandy Wade
-    //       2021
-    //     </p>
-    //   </footer>
-    // </>
-    <HiddenMickeys />
+    <>
+      <section>
+        <Switch>
+          <Route exact path="/home">
+            <Home />
+          </Route>
+          <Route exact path="/view">
+            <HiddenMickeys />
+          </Route>
+          <Route exact path="/api/HiddenMickeys/:id">
+            <HiddenMickey />
+          </Route>
+          <Route exact path="/update">
+            <UpdateHiddenMickeyPage />
+          </Route>
+          <Route exact path="/add">
+            <AddAHiddenMickeyPage />
+          </Route>
+          <Route exact path="/hunt">
+            <ScavengerHunt />
+          </Route>
+          <Route exact path="*">
+            Sorry, this page is Not Found!
+          </Route>
+        </Switch>
+      </section>
+    </>
   )
 }

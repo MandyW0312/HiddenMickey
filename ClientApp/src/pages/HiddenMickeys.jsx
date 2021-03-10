@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 export function HiddenMickeys() {
   const [mickeys, setMickeys] = useState([])
@@ -45,7 +46,10 @@ export function HiddenMickeys() {
           return (
             <li key={mickey.id}>
               <h4>Location: Curtain Call Collectibles</h4>
-              <p>Clue: {mickey.clue}</p>
+              <p>
+                <Link to={`/api/HiddenMickeys/${mickey.id}`}>Clue:</Link>
+                {mickey.clue}
+              </p>
             </li>
           )
         })}

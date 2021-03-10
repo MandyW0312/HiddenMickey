@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export function ScavengerHunt() {
   return (
@@ -45,7 +46,9 @@ export function ScavengerHunt() {
         </li>
       </ul>
       <article className="buttons">
-        <button>Home</button>
+        <button>
+          <Link to={'/home'}>Home</Link>
+        </button>
       </article>
     </>
   )
