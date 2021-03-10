@@ -67,11 +67,18 @@ main {
 
 //View All Hidden Mickeys Page
 
+.list-header {
+  background-color: #660072;
+  color: #ffd3f4;
+  padding: 0.25rem;
+  text-align: center;
+}
+
 article.hmDropdown {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #613e92;
+  background-color: #e77ccd;
   width: 175px;
   margin-left: 100px;
 }
@@ -100,11 +107,21 @@ article.hmDropdown {
 }
 
 ul.results {
-  background-color: #4157a9;
+  background-color: #a1488b;
+  color: black;
   max-width: 275px;
   margin-left: 50px;
   padding: 0;
   list-style: none;
+
+  a:link,
+  a:visited,
+  a:focus,
+  a:hover,
+  a:active {
+    color: black;
+    text-decoration: underline;
+  }
 
   h4 {
     margin: 0.25rem;
@@ -120,6 +137,20 @@ li {
       border-bottom: thin solid black;
       padding: 4px;
     }
+  }
+}
+
+button.list-page-home {
+  background-color: #e77ccd;
+  color: black;
+
+  a:link,
+  a:visited,
+  a:focus,
+  a:hover,
+  a:active {
+    color: black;
+    text-decoration: none;
   }
 }
 

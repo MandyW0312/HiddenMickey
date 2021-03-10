@@ -15,7 +15,7 @@ export function HiddenMickeys() {
 
   return (
     <>
-      <header>
+      <header className="list-header">
         <h2>View All Hidden Mickeys</h2>
       </header>
       <article className="hmDropdown">
@@ -55,7 +55,7 @@ export function HiddenMickeys() {
         })}
       </ul>
       <article className="buttons">
-        <button>
+        <button className="list-page-home">
           <Link to={'/home'}>Home</Link>
         </button>
       </article>
