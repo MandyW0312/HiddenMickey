@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export function ScavengerHunt() {
   return (
     <>
-      <header>
+      <header className="hunt-header">
         <h2>Scavenger Hunt</h2>
       </header>
       <article className="shDropdown">
@@ -46,7 +46,7 @@ export function ScavengerHunt() {
         </li>
       </ul>
       <article className="buttons">
-        <button>
+        <button className="hunt-page-home">
           <Link to={'/home'}>Home</Link>
         </button>
       </article>

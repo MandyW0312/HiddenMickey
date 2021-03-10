@@ -152,8 +152,14 @@ button {
 
 // Scavenger Hunt Page
 
+.hunt-header {
+  background-color: #3155b4;
+  padding: 0.25rem;
+  text-align: center;
+}
+
 p.disclaimer {
-  background-color: yellow;
+  background-color: #ff6c1b;
   padding: 0.5rem;
   max-width: 12rem;
   text-align: center;
@@ -161,7 +167,7 @@ p.disclaimer {
 }
 
 ul.scavenger-hunt {
-  background-color: white;
+  background-color: #acc163;
   list-style: none;
   padding: 0.5rem;
   li {
@@ -174,6 +180,20 @@ ul.scavenger-hunt {
       border-bottom: thin solid black;
       padding: 5px;
     }
+  }
+}
+
+button.hunt-page-home {
+  background-color: #fff858;
+  color: black;
+
+  a:link,
+  a:visited,
+  a:focus,
+  a:hover,
+  a:active {
+    color: black;
+    text-decoration: none;
   }
 }
 
