@@ -45,13 +45,13 @@ export function AddAHiddenMickeyPage() {
 
   return (
     <>
-      <header>
+      <header className="add-header">
         <h2>Add a Hidden Mickey</h2>
         <span>{message}</span>
       </header>
       {errorMessage && <p className="error">{errorMessage}</p>}
       <form>
-        <ul className="hidden-mickey">
+        <ul className="add-form">
           <li>
             <div className="dropdown">
               <span>Park Name</span>
@@ -80,6 +80,7 @@ export function AddAHiddenMickeyPage() {
           <li>
             <label htmlFor="location">Location: </label>
             <textarea
+              className="add-text"
               rows="2"
               cols="30"
               name="location"
@@ -89,6 +90,7 @@ export function AddAHiddenMickeyPage() {
           <li>
             <label htmlFor="clue">Clue: </label>
             <textarea
+              className="add-text"
               rows="10"
               cols="30"
               name="clue"
@@ -100,6 +102,7 @@ export function AddAHiddenMickeyPage() {
           <li>
             <label htmlFor="hint">Hint: </label>
             <textarea
+              className="add-text"
               rows="10"
               cols="30"
               name="hint"
@@ -111,8 +114,10 @@ export function AddAHiddenMickeyPage() {
         </ul>
       </form>
       <article className="buttons">
-        <button onClick={handleFormSubmit}>Submit</button>
-        <button>
+        <button onClick={handleFormSubmit} className="add-page">
+          Submit
+        </button>
+        <button className="add-page">
           <Link to={'/home'}>Home</Link>
         </button>
       </article>

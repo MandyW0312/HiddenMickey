@@ -181,9 +181,47 @@ ul.scavenger-hunt {
 
 // Add the Hidden Mickey
 
+.add-header {
+  background-color: #f41111;
+  padding: 0.25rem;
+  text-align: center;
+  color: #060000;
+}
+
 p.error {
-  background-color: lightcoral;
+  background-color: #f4d726;
   padding: 0.5rem;
+}
+
+.add-form {
+  background-color: #0f2af0;
+  font-size: 16px;
+  color: #fffcfc;
+  list-style-image: url('https://img.icons8.com/metro/24/ffffff/animation.png');
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 275px;
+  margin-left: 30px;
+}
+
+.add-text {
+  background-color: #fffcfc;
+  color: #060000;
+}
+
+button.add-page {
+  background-color: #f4d726;
+  color: #060000;
+
+  a:link,
+  a:visited,
+  a:focus,
+  a:hover,
+  a:active {
+    color: #060000;
+    text-decoration: none;
+  }
 }
 
 footer {
