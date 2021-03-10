@@ -8,6 +8,7 @@ export function AddAHiddenMickeyPage() {
   })
 
   const [message, setMessage] = useState('')
+  const [errorMessage, setErrorMessage] = useState('')
 
   function handleStringFieldChange(event) {
     const value = event.target.value
@@ -28,13 +29,18 @@ export function AddAHiddenMickeyPage() {
     })
 
     const json = await response.json()
-    setNewMickey({
-      clue: '',
-      hint: '',
-    })
-    setMessage(
-      'Thank you for adding another Hidden Mickey to our collection!!!'
-    )
+
+    if (response.status === 400) {
+      setErrorMessage(Object.values(json.errors).join(' '))
+    } else {
+      setNewMickey({
+        clue: '',
+        hint: '',
+      })
+      setMessage(
+        'Thank you for adding another Hidden Mickey to our collection!!!'
+      )
+    }
   }
 
   return (
@@ -43,6 +49,7 @@ export function AddAHiddenMickeyPage() {
         <h2>Add a Hidden Mickey</h2>
         <span>{message}</span>
       </header>
+      {errorMessage && <p className="error">{errorMessage}</p>}
       <form>
         <ul className="hidden-mickey">
           <li>
