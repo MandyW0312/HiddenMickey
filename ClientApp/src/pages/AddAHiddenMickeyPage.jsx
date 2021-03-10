@@ -7,6 +7,8 @@ export function AddAHiddenMickeyPage() {
     hint: '',
   })
 
+  const [message, setMessage] = useState('')
+
   function handleStringFieldChange(event) {
     const value = event.target.value
     const fieldName = event.target.name
@@ -26,13 +28,20 @@ export function AddAHiddenMickeyPage() {
     })
 
     const json = await response.json()
-    console.log(json)
+    setNewMickey({
+      clue: '',
+      hint: '',
+    })
+    setMessage(
+      'Thank you for adding another Hidden Mickey to our collection!!!'
+    )
   }
 
   return (
     <>
       <header>
         <h2>Add a Hidden Mickey</h2>
+        <span>{message}</span>
       </header>
       <form>
         <ul className="hidden-mickey">
