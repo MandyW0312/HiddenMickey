@@ -4,7 +4,15 @@ import { Link, useParams } from 'react-router-dom'
 export function HiddenMickey() {
   const [mickey, setMickey] = useState({
     id: undefined,
+    location: '',
+    clue: '',
+    hint: '',
+    areaOfTheParkId: 0,
   })
+
+  // const [area, setArea] = useState({
+
+  // })
 
   const params = useParams()
 
@@ -26,8 +34,8 @@ export function HiddenMickey() {
         <h2>Hidden Mickey #{mickey.id}</h2>
       </header>
       <ul className="specific-mickey">
-        <li>Park: Magic Kingdom</li>
-        <li>Area: Main Street USA</li>
+        <li>Park: </li>
+        <li>Area: {mickey.areaOfTheParkId}</li>
         <li>Location: {mickey.location}</li>
         <li>Clue: {mickey.clue}</li>
         <li>Hint: {mickey.hint}</li>

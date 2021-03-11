@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 export function AddAHiddenMickeyPage() {
   const [newMickey, setNewMickey] = useState({
+    location: '',
     clue: '',
     hint: '',
   })
@@ -34,6 +35,7 @@ export function AddAHiddenMickeyPage() {
       setErrorMessage(Object.values(json.errors).join(' '))
     } else {
       setNewMickey({
+        location: '',
         clue: '',
         hint: '',
       })
