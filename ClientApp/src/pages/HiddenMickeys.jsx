@@ -45,7 +45,7 @@ export function HiddenMickeys() {
         {mickeys.map(function (mickey) {
           return (
             <li key={mickey.id}>
-              <h4>Location: Curtain Call Collectibles</h4>
+              <h4>Location: {mickey.location} </h4>
               <p>
                 <Link to={`/HiddenMickeys/${mickey.id}`}>Clue:</Link>
                 {mickey.clue}

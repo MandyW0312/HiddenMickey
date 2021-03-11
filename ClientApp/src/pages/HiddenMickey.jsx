@@ -28,7 +28,7 @@ export function HiddenMickey() {
       <ul className="specific-mickey">
         <li>Park: Magic Kingdom</li>
         <li>Area: Main Street USA</li>
-        <li>Location: Railroad Station</li>
+        <li>Location: {mickey.location}</li>
         <li>Clue: {mickey.clue}</li>
         <li>Hint: {mickey.hint}</li>
       </ul>
