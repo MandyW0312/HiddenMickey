@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace HiddenMickey.Models
@@ -9,6 +10,8 @@ namespace HiddenMickey.Models
         public string Name { get; set; }
         
         public int ParkId { get; set; }
+        
+        public List<HiddenMickey> HiddenMickeys { get; set; }
         
         
     }
