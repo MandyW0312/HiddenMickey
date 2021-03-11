@@ -22,10 +22,10 @@ export function HiddenMickey() {
 
   return (
     <>
-      <header>
+      <header className="specific-header">
         <h2>Hidden Mickey #{mickey.id}</h2>
       </header>
-      <ul className="hidden-mickey">
+      <ul className="specific-mickey">
         <li>Park: Magic Kingdom</li>
         <li>Area: Main Street USA</li>
         <li>Location: Railroad Station</li>
@@ -33,12 +33,11 @@ export function HiddenMickey() {
         <li>Hint: {mickey.hint}</li>
       </ul>
       <article className="buttons">
-        <button>Back</button>
-        <button>Delete</button>
-        <button>
+        <button className="specific-buttons">Delete</button>
+        <button className="specific-buttons">
           <Link to={'/home'}>Home</Link>
         </button>
-        <button>
+        <button className="specific-buttons">
           <Link to={'/update/:id'}>Update</Link>
         </button>
       </article>

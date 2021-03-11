@@ -156,10 +156,16 @@ button.list-page-home {
 
 // Specific Hidden Mickey Page
 
-ul.hidden-mickey {
-  background-color: aquamarine;
+.specific-header {
+  background-color: #f9a3c5;
+  padding: 0.25rem;
+  text-align: center;
+}
+
+ul.specific-mickey {
+  background-color: #a3a3dd;
   font-size: 16px;
-  list-style-image: url('https://img.icons8.com/metro/26/000000/animation.png');
+  list-style-image: url('https://img.icons8.com/material-rounded/24/000000/animation.png');
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -173,12 +179,20 @@ article.buttons {
   align-items: center;
 }
 
-button {
-  background-color: cadetblue;
-  color: whitesmoke;
+.specific-buttons {
+  background-color: #ffdb00;
   width: 80px;
   margin: 3px;
   border-radius: 20px;
+
+  a:link,
+  a:visited,
+  a:focus,
+  a:hover,
+  a:active {
+    color: black;
+    text-decoration: none;
+  }
 }
 
 // Scavenger Hunt Page
