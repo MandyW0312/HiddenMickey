@@ -16,6 +16,9 @@ namespace HiddenMickey.Models
         // Add database tables here
         public DbSet<HiddenMickey> HiddenMickeys { get; set; }
         public DbSet<Park> Parks { get; set; }
+        public DbSet<AreaOfThePark> AreaOfTheParks { get; set; }
+        
+        
         
         
         
