@@ -6,6 +6,8 @@ namespace HiddenMickey.Models
     {
         public int Id { get; set; }
         [Required]
+        public string Location { get; set; }
+        [Required]
         public string Clue { get; set; }
         [Required]
         public string Hint { get; set; }
