@@ -244,6 +244,49 @@ button.hunt-page-home {
 
 // Updating the Hidden Mickey
 
+.update-header {
+  background-color: #e70909;
+  padding: 0.25rem;
+  text-align: center;
+}
+
+.update-message {
+  background-color: #cccccc;
+  padding: 0.5rem;
+  max-width: 12rem;
+  text-align: center;
+  margin-left: 5.5rem;
+}
+
+.update-mickey {
+  background-color: #ecb818;
+  font-size: 16px;
+  color: black;
+  list-style-image: url('https://img.icons8.com/material-rounded/24/000000/animation.png');
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 275px;
+  margin-left: 30px;
+}
+
+.update-buttons {
+  background-color: #cccccc;
+  color: #060000;
+  width: 80px;
+  margin: 3px;
+  border-radius: 20px;
+
+  a:link,
+  a:visited,
+  a:focus,
+  a:hover,
+  a:active {
+    color: #060000;
+    text-decoration: none;
+  }
+}
+
 // Add the Hidden Mickey
 
 .add-header {
