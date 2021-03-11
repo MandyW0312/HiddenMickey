@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export function UpdateHiddenMickeyPage() {
   // const params = useParams()
   // const [updateMickey, setUpdateMickey] = useState({
-  //   id: undefined,
+  //   id: params.id,
   // })
 
   // useEffect(

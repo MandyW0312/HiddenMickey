@@ -68,8 +68,8 @@ main {
 //View All Hidden Mickeys Page
 
 .list-header {
-  background-color: #660072;
-  color: #ffd3f4;
+  background-color: #d84881;
+  color: #fffeff;
   padding: 0.25rem;
   text-align: center;
 }
@@ -78,7 +78,7 @@ article.hmDropdown {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #e77ccd;
+  background-color: #fb94b9;
   width: 175px;
   margin-left: 100px;
 }
@@ -107,7 +107,7 @@ article.hmDropdown {
 }
 
 ul.results {
-  background-color: #a1488b;
+  background-color: #75b9df;
   color: black;
   max-width: 275px;
   margin-left: 50px;
@@ -141,8 +141,11 @@ li {
 }
 
 button.list-page-home {
-  background-color: #e77ccd;
+  background-color: #dd4782;
   color: black;
+  width: 80px;
+  margin: 3px;
+  border-radius: 20px;
 
   a:link,
   a:visited,
@@ -165,7 +168,7 @@ button.list-page-home {
 ul.specific-mickey {
   background-color: #a3a3dd;
   font-size: 16px;
-  list-style-image: url('https://img.icons8.com/material-rounded/24/000000/animation.png');
+  list-style-image: url('https://img.icons8.com/metro/24//animation.png');
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -231,6 +234,9 @@ ul.scavenger-hunt {
 button.hunt-page-home {
   background-color: #fff858;
   color: black;
+  width: 80px;
+  margin: 3px;
+  border-radius: 20px;
 
   a:link,
   a:visited,
@@ -262,7 +268,7 @@ button.hunt-page-home {
   background-color: #ecb818;
   font-size: 16px;
   color: black;
-  list-style-image: url('https://img.icons8.com/material-rounded/24/000000/animation.png');
+  list-style-image: url('https://img.icons8.com/metro/24/000000/animation.png');
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -305,7 +311,7 @@ p.error {
   background-color: #0f2af0;
   font-size: 16px;
   color: #fffcfc;
-  list-style-image: url('https://img.icons8.com/metro/24/ffffff/animation.png');
+  list-style-image: url('https://img.icons8.com/metro/24/f4d726/animation.png');
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -321,6 +327,9 @@ p.error {
 button.add-page {
   background-color: #f4d726;
   color: #060000;
+  width: 80px;
+  margin: 3px;
+  border-radius: 20px;
 
   a:link,
   a:visited,
