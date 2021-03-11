@@ -19,7 +19,7 @@ export function App() {
           <Route exact path="/view">
             <HiddenMickeys />
           </Route>
-          <Route exact path="/api/HiddenMickeys/:id">
+          <Route exact path="/HiddenMickeys/:id">
             <HiddenMickey />
           </Route>
           <Route exact path="/update/:id">

@@ -47,7 +47,7 @@ export function HiddenMickeys() {
             <li key={mickey.id}>
               <h4>Location: Curtain Call Collectibles</h4>
               <p>
-                <Link to={`/api/HiddenMickeys/${mickey.id}`}>Clue:</Link>
+                <Link to={`/HiddenMickeys/${mickey.id}`}>Clue:</Link>
                 {mickey.clue}
               </p>
             </li>
