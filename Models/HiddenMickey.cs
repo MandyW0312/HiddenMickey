@@ -11,5 +11,8 @@ namespace HiddenMickey.Models
         public string Clue { get; set; }
         [Required]
         public string Hint { get; set; }
+        public int AreaOfTheParkId { get; set; }
+        
+        
     }
 }
