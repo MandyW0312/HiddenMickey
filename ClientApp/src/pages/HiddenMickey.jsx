@@ -7,12 +7,19 @@ export function HiddenMickey() {
     location: '',
     clue: '',
     hint: '',
-    areaOfTheParkId: 0,
+    areaOfTheParkId: undefined,
   })
 
-  // const [area, setArea] = useState({
+  const [area, setArea] = useState({
+    id: undefined,
+    name: '',
+    parkId: undefined,
+  })
 
-  // })
+  const [park, setPark] = useState({
+    id: undefined,
+    name: '',
+  })
 
   const params = useParams()
 
@@ -28,14 +35,40 @@ export function HiddenMickey() {
     [params.id]
   )
 
+  useEffect(
+    function () {
+      async function fetchMickey() {
+        const response = await fetch(
+          `/api/AreaOfTheParks/${mickey.areaOfTheParkId}`
+        )
+        const json = await response.json()
+        setArea(json)
+      }
+      fetchMickey()
+    },
+    [mickey.areaOfTheParkId]
+  )
+
+  useEffect(
+    function () {
+      async function fetchMickey() {
+        const response = await fetch(`/api/Parks/${area.parkId}`)
+        const json = await response.json()
+        setPark(json)
+      }
+      fetchMickey()
+    },
+    [area.parkId]
+  )
+
   return (
     <>
       <header className="specific-header">
         <h2>Hidden Mickey #{mickey.id}</h2>
       </header>
       <ul className="specific-mickey">
-        <li>Park: </li>
-        <li>Area: {mickey.areaOfTheParkId}</li>
+        <li>Park: {park.name}</li>
+        <li>Area: {area.name}</li>
         <li>Location: {mickey.location}</li>
         <li>Clue: {mickey.clue}</li>
         <li>Hint: {mickey.hint}</li>
