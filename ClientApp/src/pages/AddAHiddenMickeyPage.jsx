@@ -84,6 +84,8 @@ export function AddAHiddenMickeyPage() {
               rows="2"
               cols="30"
               name="location"
+              value={newMickey.location}
+              onChange={handleStringFieldChange}
               placeholder="Ride Name, Restaurant Name, Shop Name..."
             ></textarea>
           </li>
