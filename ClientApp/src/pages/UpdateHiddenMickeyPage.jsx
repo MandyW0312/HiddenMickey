@@ -2,11 +2,10 @@ import React, { useEffect, useState, useParams } from 'react'
 import { Link } from 'react-router-dom'
 
 export function UpdateHiddenMickeyPage() {
+  // const params = useParams()
   // const [updateMickey, setUpdateMickey] = useState({
   //   id: undefined,
   // })
-
-  // const params = useParams()
 
   // useEffect(
   //   function () {
@@ -36,9 +35,7 @@ export function UpdateHiddenMickeyPage() {
             <input
               type="text"
               placeholder="Railroad Station"
-              value=""
               name="Location"
-              onChange=""
             ></input>
           </li>
           <li>

@@ -38,7 +38,7 @@ export function HiddenMickey() {
           <Link to={'/home'}>Home</Link>
         </button>
         <button className="specific-buttons">
-          <Link to={'/update/:id'}>Update</Link>
+          <Link to={'/update'}>Update</Link>
         </button>
       </article>
     </>
