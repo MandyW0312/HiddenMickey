@@ -10,6 +10,7 @@ export function HiddenMickeys() {
   })
 
   const [parkDropdownShown, setParkDropdownShown] = useState(false)
+  const [areaDropdownShown, setAreaDropdownShown] = useState(false)
 
   useEffect(function () {
     async function fetchParks() {
@@ -20,12 +21,6 @@ export function HiddenMickeys() {
     fetchParks()
   }, [])
 
-  // async function ChangeParkId(event) {
-  //   const response = await fetch(`/api/AreaOfTheParks?parkId=${parksId}`)
-  //   const json = await response.json()
-  //   console.log(json)
-  // }
-
   return (
     <>
       <header className="list-header">
@@ -34,16 +29,14 @@ export function HiddenMickeys() {
       <article className="hmDropdown">
         <div className="dropdown">
           <button
-            className="dropdown-button"
+            className="dropdown-parksb"
             onClick={function () {
               setParkDropdownShown(!parkDropdownShown)
             }}
           >
             Park Name
           </button>
-          <div
-            className={`dropdown-content ${parkDropdownShown ? 'show' : ''}`}
-          >
+          <div className={`dropdown-parksc ${parkDropdownShown ? 'show' : ''}`}>
             {parks.map(function (park) {
               return (
                 <button
@@ -60,8 +53,15 @@ export function HiddenMickeys() {
           </div>
         </div>
         <div className="dropdown">
-          <span>Area of the Park</span>
-          <div className="dropdown-content">
+          <button
+            className="dropdown-areasb"
+            onClick={function () {
+              setAreaDropdownShown(!areaDropdownShown)
+            }}
+          >
+            Area of the Park
+          </button>
+          <div className={`dropdown-areasc ${areaDropdownShown ? 'show' : ''}`}>
             {selectedPark.areaOfTheParks.map(function (area) {
               return <button key={area.id}>{area.name}</button>
             })}

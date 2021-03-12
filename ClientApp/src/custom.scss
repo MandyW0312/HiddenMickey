@@ -92,7 +92,8 @@ main {
   margin: 0.25rem;
 }
 
-.dropdown-button {
+.dropdown-parksb,
+.dropdown-areasb {
   background-color: #4caf50;
   color: white;
   padding: 8px;
@@ -101,12 +102,18 @@ main {
   cursor: pointer;
 }
 
-.dropdown-button:hover,
-.dropdown-button:focus {
+.dropdown-parksb:hover,
+.dropdown-parksb:focus {
   background-color: #2980b9;
 }
 
-.dropdown-content {
+.dropdown-areasb:hover,
+.dropdown-areasb:focus {
+  background-color: #2980b9;
+}
+
+.dropdown-parksc,
+.dropdown-areasc {
   display: none;
   position: absolute;
   background-color: #7098a3;
@@ -116,26 +123,26 @@ main {
   z-index: 1;
 }
 
-.dropdown-content.show {
+.dropdown-parksc.show,
+.dropdown-areasc.show {
   display: block;
 }
 
-.dropdown-content button {
+.dropdown-parksc button,
+.dropdown-areasc button {
   color: black;
   padding: 2px;
   text-decoration: none;
   display: block;
 }
 
-.dropdown-content button:hover {
+.dropdown-parksc button:hover,
+.dropdown-areasc button:hover {
   background-color: #f1f1f1;
 }
 
-// .dropdown:hover .dropdown-content {
-//   display: block;
-// }
-
-.dropdown:hover .dropdown-button {
+.dropdown:hover .dropdown-parksb,
+.dropdown:hover .dropdown-areasb {
   background-color: #3e8e41;
 }
 
