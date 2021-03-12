@@ -35,7 +35,7 @@ namespace HiddenMickey.Controllers
         {
             // Uses the database context in `_context` to request all of the Parks, sort
             // them by row id and return them as a JSON array.
-            return await _context.Parks.OrderBy(row => row.Id).ToListAsync();
+            return await _context.Parks.Include(park => park.AreaOfTheParks).OrderBy(row => row.Id).ToListAsync();
         }
 
         // GET: api/Parks/5

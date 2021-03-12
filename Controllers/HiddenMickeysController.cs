@@ -31,11 +31,12 @@ namespace HiddenMickey.Controllers
         // Returns a list of all your HiddenMickeys
         //
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<HiddenMickey.Models.HiddenMickey>>> GetHiddenMickeys()
+        public async Task<ActionResult<IEnumerable<HiddenMickey.Models.HiddenMickey>>> GetHiddenMickeys(int areaId)
         {
             // Uses the database context in `_context` to request all of the HiddenMickeys, sort
             // them by row id and return them as a JSON array.
-            return await _context.HiddenMickeys.OrderBy(row => row.Id).Include(mickey => mickey.AreaOfTheParkId).ToListAsync();
+                return await _context.HiddenMickeys.OrderBy(row => row.Id).Where(mickey => mickey.AreaOfTheParkId == areaId).ToListAsync();
+            
         }
 
         // GET: api/HiddenMickeys/5
