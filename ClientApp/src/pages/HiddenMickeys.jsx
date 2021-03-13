@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 export function HiddenMickeys() {
-  const [mickeys, setMickeys] = useState([])
+  const [mickeys, setMickeys] = useState({})
   const [parks, setParks] = useState([])
   const [selectedPark, setSelectedPark] = useState({
     name: '',
@@ -103,13 +103,13 @@ export function HiddenMickeys() {
       </article>
 
       <ul className="results">
-        {mickeys.map(function (mickey) {
+        {Object.entries(mickeys).map(function ([mickeyCode, mickeyDetails]) {
           return (
-            <li key={mickey.id}>
-              <h4>Location: {mickey.location} </h4>
+            <li key={mickeyDetails.id}>
+              <h4>Location: {mickeyDetails.location} </h4>
               <p>
-                <Link to={`/HiddenMickeys/${mickey.id}`}>Clue:</Link>
-                {mickey.clue}
+                <Link to={`/HiddenMickeys/${mickeyDetails.id}`}>Clue: </Link>
+                {mickeyDetails.clue}
               </p>
             </li>
           )

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 export function AddAHiddenMickeyPage() {
@@ -7,6 +7,30 @@ export function AddAHiddenMickeyPage() {
     clue: '',
     hint: '',
   })
+
+  const [parks, setParks] = useState([])
+  const [selectedPark, setSelectedPark] = useState({
+    name: '',
+    areaOfTheParks: [],
+  })
+
+  const [selectedArea, setSelectedArea] = useState({
+    id: undefined,
+    name: '',
+    hiddenMickeys: [],
+  })
+
+  useEffect(function () {
+    async function fetchParks() {
+      const response = await fetch('/api/Parks')
+      const json = await response.json()
+      setParks(json)
+    }
+    fetchParks()
+  }, [])
+
+  const [parkDropdownShown, setParkDropdownShown] = useState(false)
+  const [areaDropdownShown, setAreaDropdownShown] = useState(false)
 
   const [message, setMessage] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
@@ -56,25 +80,59 @@ export function AddAHiddenMickeyPage() {
         <ul className="add-form">
           <li>
             <div className="dropdown">
-              <span>Park Name</span>
-              <div className="dropdown-content">
-                <p>Magic Kingdom</p>
-                <p>Epcot</p>
-                <p>Hollywood Studios</p>
-                <p>Animal Kingdom</p>
+              <button
+                className="dropdown-parksb"
+                onClick={function () {
+                  setParkDropdownShown(!parkDropdownShown)
+                }}
+              >
+                Park Name
+              </button>
+              <div
+                className={`dropdown-parksc ${parkDropdownShown ? 'show' : ''}`}
+              >
+                {parks.map(function (park) {
+                  return (
+                    <button
+                      key={park.id}
+                      onClick={function () {
+                        setSelectedPark(park)
+                        setParkDropdownShown(false)
+                      }}
+                    >
+                      {park.name}
+                    </button>
+                  )
+                })}
               </div>
             </div>
           </li>
           <li>
             <div className="dropdown">
-              <span>Area of the Park</span>
-              <div className="dropdown-content">
-                <p>Main Street USA</p>
-                <p>Fantasyland</p>
-                <p>Tomorrowland</p>
-                <p>Adventureland</p>
-                <p>Frontierland</p>
-                <p>Liberty Square</p>
+              <button
+                className="dropdown-areasb"
+                onClick={function () {
+                  setAreaDropdownShown(!areaDropdownShown)
+                }}
+              >
+                Area of the Park
+              </button>
+              <div
+                className={`dropdown-areasc ${areaDropdownShown ? 'show' : ''}`}
+              >
+                {selectedPark.areaOfTheParks.map(function (area) {
+                  return (
+                    <button
+                      key={area.id}
+                      onClick={function () {
+                        setSelectedArea(area)
+                        setAreaDropdownShown(false)
+                      }}
+                    >
+                      {area.name}
+                    </button>
+                  )
+                })}
               </div>
             </div>
           </li>
