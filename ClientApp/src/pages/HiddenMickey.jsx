@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router'
+import { Link } from 'react-router-dom'
 
 export function HiddenMickey() {
   const [mickey, setMickey] = useState({
@@ -79,7 +80,7 @@ export function HiddenMickey() {
           <Link to={'/home'}>Home</Link>
         </button>
         <button className="specific-buttons">
-          <Link to={'/update'}>Update</Link>
+          <Link to={`/update/${mickey.id}`}>Update</Link>
         </button>
       </article>
     </>
