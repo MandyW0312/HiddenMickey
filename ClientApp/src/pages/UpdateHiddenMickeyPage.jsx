@@ -11,6 +11,17 @@ export function UpdateHiddenMickeyPage() {
     hint: '',
   })
 
+  const [area, setArea] = useState({
+    id: undefined,
+    name: '',
+    parkId: undefined,
+  })
+
+  const [park, setPark] = useState({
+    id: undefined,
+    name: '',
+  })
+
   useEffect(
     function () {
       async function fetchMickey() {
@@ -21,6 +32,32 @@ export function UpdateHiddenMickeyPage() {
       fetchMickey()
     },
     [params.id]
+  )
+
+  useEffect(
+    function () {
+      async function fetchArea() {
+        const response = await fetch(
+          `/api/AreaOfTheParks/${updateMickey.areaOfTheParkId}`
+        )
+        const json = await response.json()
+        setArea(json)
+      }
+      fetchArea()
+    },
+    [updateMickey.areaOfTheParkId]
+  )
+
+  useEffect(
+    function () {
+      async function fetchPark() {
+        const response = await fetch(`/api/Parks/${area.parkId}`)
+        const json = await response.json()
+        setPark(json)
+      }
+      fetchPark()
+    },
+    [area.parkId]
   )
 
   console.log(updateMickey.location)
@@ -34,20 +71,41 @@ export function UpdateHiddenMickeyPage() {
       </header>
       <p className="update-message">Thank you for updating our error!</p>
       <ul className="update-mickey">
-        <li>Park: Magic Kingdom</li>
-        <li>Area: Main Street USA</li>
+        <li>Park: {park.name}</li>
+        <li>Area: {area.name}</li>
         <form>
           <li>
             <label htmlFor="Location">Location: </label>
-            <textarea rows="5" cols="30" name="Location"></textarea>
+            <textarea
+              rows="5"
+              cols="30"
+              name="Location"
+              placeholder={updateMickey.location}
+            >
+              {updateMickey.location}
+            </textarea>
           </li>
           <li>
             <label htmlFor="Clue">Clue: </label>
-            <textarea rows="10" cols="30" name="Clue"></textarea>
+            <textarea
+              rows="10"
+              cols="30"
+              name="Clue"
+              placeholder={updateMickey.clue}
+            >
+              {updateMickey.clue}
+            </textarea>
           </li>
           <li>
             <label htmlFor="Hint">Hint: </label>
-            <textarea rows="10" cols="30" name="Hint"></textarea>
+            <textarea
+              rows="10"
+              cols="30"
+              name="Hint"
+              placeholder={updateMickey.hint}
+            >
+              {updateMickey.hint}
+            </textarea>
           </li>
         </form>
       </ul>
