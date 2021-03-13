@@ -9,6 +9,12 @@ export function HiddenMickeys() {
     areaOfTheParks: [],
   })
 
+  const [selectedArea, setSelectedArea] = useState({
+    id: undefined,
+    name: '',
+    hiddenMickeys: [],
+  })
+
   const [parkDropdownShown, setParkDropdownShown] = useState(false)
   const [areaDropdownShown, setAreaDropdownShown] = useState(false)
 
@@ -20,6 +26,23 @@ export function HiddenMickeys() {
     }
     fetchParks()
   }, [])
+
+  useEffect(
+    function () {
+      async function fetchMickeys() {
+        const response = await fetch(
+          `/api/HiddenMickeys?areaId=${selectedArea.id}`
+        )
+        const json = await response.json()
+        setMickeys(json)
+      }
+      fetchMickeys()
+    },
+    [selectedArea.id]
+  )
+
+  console.log(selectedArea.id)
+  console.log(mickeys)
 
   return (
     <>
@@ -63,7 +86,17 @@ export function HiddenMickeys() {
           </button>
           <div className={`dropdown-areasc ${areaDropdownShown ? 'show' : ''}`}>
             {selectedPark.areaOfTheParks.map(function (area) {
-              return <button key={area.id}>{area.name}</button>
+              return (
+                <button
+                  key={area.id}
+                  onClick={function () {
+                    setSelectedArea(area)
+                    setAreaDropdownShown(false)
+                  }}
+                >
+                  {area.name}
+                </button>
+              )
             })}
           </div>
         </div>
