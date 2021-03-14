@@ -41,9 +41,6 @@ export function HiddenMickeys() {
     [selectedArea.id]
   )
 
-  console.log(selectedArea.id)
-  console.log(mickeys)
-
   return (
     <>
       <header className="list-header">

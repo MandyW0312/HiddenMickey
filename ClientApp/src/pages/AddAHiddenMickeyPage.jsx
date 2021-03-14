@@ -81,7 +81,7 @@ export function AddAHiddenMickeyPage() {
           <li>
             <div className="dropdown">
               <button
-                className="dropdown-parksb"
+                className="dropdown-parksb-add"
                 onClick={function () {
                   setParkDropdownShown(!parkDropdownShown)
                 }}
@@ -89,7 +89,9 @@ export function AddAHiddenMickeyPage() {
                 Park Name
               </button>
               <div
-                className={`dropdown-parksc ${parkDropdownShown ? 'show' : ''}`}
+                className={`dropdown-parksc-add ${
+                  parkDropdownShown ? 'show' : ''
+                }`}
               >
                 {parks.map(function (park) {
                   return (
@@ -110,7 +112,7 @@ export function AddAHiddenMickeyPage() {
           <li>
             <div className="dropdown">
               <button
-                className="dropdown-areasb"
+                className="dropdown-areasb-add"
                 onClick={function () {
                   setAreaDropdownShown(!areaDropdownShown)
                 }}
@@ -118,7 +120,9 @@ export function AddAHiddenMickeyPage() {
                 Area of the Park
               </button>
               <div
-                className={`dropdown-areasc ${areaDropdownShown ? 'show' : ''}`}
+                className={`dropdown-areasc-add ${
+                  areaDropdownShown ? 'show' : ''
+                }`}
               >
                 {selectedPark.areaOfTheParks.map(function (area) {
                   return (
