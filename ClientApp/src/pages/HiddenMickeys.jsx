@@ -111,7 +111,7 @@ export function HiddenMickeys() {
       >
         {Object.entries(mickeys).map(function ([mickeyCode, mickeyDetails]) {
           return (
-            <li>
+            <li key={mickeyDetails.id}>
               <h4>Location: {mickeyDetails.location} </h4>
               <p>
                 <Link to={`/HiddenMickeys/${mickeyDetails.id}`}>Clue: </Link>

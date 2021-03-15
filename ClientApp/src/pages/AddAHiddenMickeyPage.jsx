@@ -2,12 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 export function AddAHiddenMickeyPage() {
-  const [newMickey, setNewMickey] = useState({
-    location: '',
-    clue: '',
-    hint: '',
-  })
-
   const [parks, setParks] = useState([])
   const [selectedPark, setSelectedPark] = useState({
     name: '',
@@ -18,6 +12,13 @@ export function AddAHiddenMickeyPage() {
     id: undefined,
     name: '',
     hiddenMickeys: [],
+  })
+
+  const [addedMickey, setAddedMickey] = useState({
+    location: '',
+    clue: '',
+    hint: '',
+    areaOfTheParkId: selectedArea.id,
   })
 
   useEffect(function () {
@@ -39,10 +40,16 @@ export function AddAHiddenMickeyPage() {
     const value = event.target.value
     const fieldName = event.target.name
 
-    const addedMickey = { ...newMickey, [fieldName]: value }
+    const newMickeyInfo = {
+      ...addedMickey,
+      [fieldName]: value,
+    }
 
-    setNewMickey(addedMickey)
+    setAddedMickey(newMickeyInfo)
   }
+
+  console.log(selectedArea.id)
+  console.log(addedMickey)
 
   async function handleFormSubmit(event) {
     event.preventDefault()
@@ -50,7 +57,7 @@ export function AddAHiddenMickeyPage() {
     const response = await fetch('/api/HiddenMickeys', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
-      body: JSON.stringify(newMickey),
+      body: JSON.stringify(addedMickey),
     })
 
     const json = await response.json()
@@ -58,10 +65,11 @@ export function AddAHiddenMickeyPage() {
     if (response.status === 400) {
       setErrorMessage(Object.values(json.errors).join(' '))
     } else {
-      setNewMickey({
+      setAddedMickey({
         location: '',
         clue: '',
         hint: '',
+        areaOfTheParkId: undefined,
       })
       setMessage(
         'Thank you for adding another Hidden Mickey to our collection!!!'
@@ -82,7 +90,8 @@ export function AddAHiddenMickeyPage() {
             <div className="dropdown">
               <button
                 className="dropdown-parksb-add"
-                onClick={function () {
+                onClick={function (event) {
+                  event.preventDefault()
                   setParkDropdownShown(!parkDropdownShown)
                 }}
               >
@@ -97,7 +106,8 @@ export function AddAHiddenMickeyPage() {
                   return (
                     <button
                       key={park.id}
-                      onClick={function () {
+                      onClick={function (event) {
+                        event.preventDefault()
                         setSelectedPark(park)
                         setParkDropdownShown(false)
                       }}
@@ -113,7 +123,8 @@ export function AddAHiddenMickeyPage() {
             <div className="dropdown">
               <button
                 className="dropdown-areasb-add"
-                onClick={function () {
+                onClick={function (event) {
+                  event.preventDefault()
                   setAreaDropdownShown(!areaDropdownShown)
                 }}
               >
@@ -128,7 +139,8 @@ export function AddAHiddenMickeyPage() {
                   return (
                     <button
                       key={area.id}
-                      onClick={function () {
+                      onClick={function (event) {
+                        event.preventDefault()
                         setSelectedArea(area)
                         setAreaDropdownShown(false)
                       }}
@@ -145,10 +157,12 @@ export function AddAHiddenMickeyPage() {
             <label htmlFor="location">Location: </label>
             <textarea
               className="add-text"
+              // @ts-ignore
               rows="2"
+              // @ts-ignore
               cols="30"
               name="location"
-              value={newMickey.location}
+              value={addedMickey.location}
               onChange={handleStringFieldChange}
               placeholder="Ride Name, Restaurant Name, Shop Name..."
             ></textarea>
@@ -157,10 +171,12 @@ export function AddAHiddenMickeyPage() {
             <label htmlFor="clue">Clue: </label>
             <textarea
               className="add-text"
+              // @ts-ignore
               rows="10"
+              // @ts-ignore
               cols="30"
               name="clue"
-              value={newMickey.clue}
+              value={addedMickey.clue}
               onChange={handleStringFieldChange}
               placeholder="General area of where the Hidden Mickey is..."
             ></textarea>
@@ -169,10 +185,12 @@ export function AddAHiddenMickeyPage() {
             <label htmlFor="hint">Hint: </label>
             <textarea
               className="add-text"
+              // @ts-ignore
               rows="10"
+              // @ts-ignore
               cols="30"
               name="hint"
-              value={newMickey.hint}
+              value={addedMickey.hint}
               onChange={handleStringFieldChange}
               placeholder="More specific to where the Hidden Mickey is..."
             ></textarea>
