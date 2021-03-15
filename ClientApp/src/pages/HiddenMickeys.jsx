@@ -41,6 +41,8 @@ export function HiddenMickeys() {
     [selectedArea.id]
   )
 
+  const [resultsShown, setResultsShown] = useState(false)
+
   return (
     <>
       <header className="list-header">
@@ -89,6 +91,7 @@ export function HiddenMickeys() {
                   onClick={function () {
                     setSelectedArea(area)
                     setAreaDropdownShown(false)
+                    setResultsShown(true)
                   }}
                 >
                   {area.name}
@@ -99,7 +102,13 @@ export function HiddenMickeys() {
         </div>
       </article>
 
-      <ul className="results" key={mickeys.id}>
+      <ul
+        className={`results ${resultsShown ? 'show' : ''}`}
+        key={
+          // @ts-ignore
+          mickeys.id
+        }
+      >
         {Object.entries(mickeys).map(function ([mickeyCode, mickeyDetails]) {
           return (
             <li>
@@ -112,6 +121,7 @@ export function HiddenMickeys() {
           )
         })}
       </ul>
+
       <article className="buttons">
         <button className="list-page-home">
           <Link to={'/home'}>Home</Link>

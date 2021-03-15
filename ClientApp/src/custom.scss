@@ -156,6 +156,7 @@ ul.results {
   margin-left: 50px;
   padding: 0;
   list-style: none;
+  display: none;
 
   a:link,
   a:visited,
@@ -169,6 +170,10 @@ ul.results {
   h4 {
     margin: 0.25rem;
   }
+}
+
+ul.results.show {
+  display: block;
 }
 
 li {
