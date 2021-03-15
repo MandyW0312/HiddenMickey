@@ -99,10 +99,10 @@ export function HiddenMickeys() {
         </div>
       </article>
 
-      <ul className="results">
+      <ul className="results" key={mickeys.id}>
         {Object.entries(mickeys).map(function ([mickeyCode, mickeyDetails]) {
           return (
-            <li key={mickeyDetails.id}>
+            <li>
               <h4>Location: {mickeyDetails.location} </h4>
               <p>
                 <Link to={`/HiddenMickeys/${mickeyDetails.id}`}>Clue: </Link>
