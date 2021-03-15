@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
-import { Link, useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export function UpdateHiddenMickeyPage() {
   const params = useParams()
-  const history = useHistory()
 
   const [mickey, setMickey] = useState({
     id: undefined,
@@ -111,10 +110,10 @@ export function UpdateHiddenMickeyPage() {
 
     if (response.status === 400) {
       setErrorMessage(Object.values(json.errors).join(' '))
-    } else {
-      // @ts-ignore
-      history.push('/home')
     }
+
+    // @ts-ignore
+    window.location.assign(`/update/${params.id}`)
   }
 
   return (
