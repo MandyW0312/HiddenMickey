@@ -39,9 +39,9 @@ export function AddAHiddenMickeyPage() {
     const value = event.target.value
     const fieldName = event.target.name
 
-    const updatedMickey = { ...newMickey, [fieldName]: value }
+    const addedMickey = { ...newMickey, [fieldName]: value }
 
-    setNewMickey(updatedMickey)
+    setNewMickey(addedMickey)
   }
 
   async function handleFormSubmit(event) {
