@@ -27,12 +27,15 @@ export function HiddenMickey() {
   useEffect(
     function () {
       async function fetchMickey() {
+        // @ts-ignore
         const response = await fetch(`/api/HiddenMickeys/${params.id}`)
         const json = await response.json()
+
         setMickey(json)
       }
       fetchMickey()
     },
+    // @ts-ignore
     [params.id]
   )
 
@@ -43,6 +46,7 @@ export function HiddenMickey() {
           `/api/AreaOfTheParks/${mickey.areaOfTheParkId}`
         )
         const json = await response.json()
+
         setArea(json)
       }
       fetchArea()
@@ -55,6 +59,7 @@ export function HiddenMickey() {
       async function fetchPark() {
         const response = await fetch(`/api/Parks/${area.parkId}`)
         const json = await response.json()
+
         setPark(json)
       }
       fetchPark()
