@@ -18,7 +18,7 @@ export function AddAHiddenMickeyPage() {
     location: '',
     clue: '',
     hint: '',
-    areaOfTheParkId: selectedArea.id,
+    areaOfTheParkId: 0,
   })
 
   useEffect(function () {
@@ -142,6 +142,10 @@ export function AddAHiddenMickeyPage() {
                       onClick={function (event) {
                         event.preventDefault()
                         setSelectedArea(area)
+                        setAddedMickey({
+                          ...addedMickey,
+                          areaOfTheParkId: area.id,
+                        })
                         setAreaDropdownShown(false)
                       }}
                     >
