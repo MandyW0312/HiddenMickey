@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router'
+import { useHistory, useParams } from 'react-router'
 import { Link } from 'react-router-dom'
 
 export function HiddenMickey() {
@@ -23,6 +23,7 @@ export function HiddenMickey() {
   })
 
   const params = useParams()
+  const history = useHistory()
 
   useEffect(
     function () {
@@ -67,6 +68,20 @@ export function HiddenMickey() {
     [area.parkId]
   )
 
+  async function handleDelete(event) {
+    event.preventDefault()
+
+    // @ts-ignore
+    const response = await fetch(`/api/HiddenMickeys/${params.id}`, {
+      method: 'DELETE',
+      headers: { 'content-type': 'application/json' },
+    })
+
+    if (response.status === 200 || response.status === 204) {
+      history.push('/home')
+    }
+  }
+
   return (
     <>
       <header className="specific-header">
@@ -80,7 +95,9 @@ export function HiddenMickey() {
         <li>Hint: {mickey.hint}</li>
       </ul>
       <article className="buttons">
-        <button className="specific-buttons">Delete</button>
+        <button className="specific-buttons" onClick={handleDelete}>
+          Delete
+        </button>
         <button className="specific-buttons">
           <Link to={'/home'}>Home</Link>
         </button>
