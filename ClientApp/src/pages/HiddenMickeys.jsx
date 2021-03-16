@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 export function HiddenMickeys() {
-  const [mickeys, setMickeys] = useState({})
+  const [mickeys, setMickeys] = useState([])
   const [parks, setParks] = useState([])
   const [selectedPark, setSelectedPark] = useState({
     name: '',
@@ -29,6 +29,10 @@ export function HiddenMickeys() {
 
   useEffect(
     function () {
+      if (selectedArea.id === undefined) {
+        return
+      }
+
       async function fetchMickeys() {
         const response = await fetch(
           `/api/HiddenMickeys?areaId=${selectedArea.id}`
@@ -102,14 +106,8 @@ export function HiddenMickeys() {
         </div>
       </article>
 
-      <ul
-        className={`results ${resultsShown ? 'show' : ''}`}
-        key={
-          // @ts-ignore
-          mickeys.id
-        }
-      >
-        {Object.entries(mickeys).map(function ([mickeyCode, mickeyDetails]) {
+      <ul className={`results ${resultsShown ? 'show' : ''}`}>
+        {mickeys.map(function (mickeyDetails) {
           return (
             <li key={mickeyDetails.id}>
               <h4>Location: {mickeyDetails.location} </h4>
