@@ -14,5 +14,6 @@ namespace HiddenMickey.Models
         public int AreaOfTheParkId { get; set; }
         
         
+        
     }
 }

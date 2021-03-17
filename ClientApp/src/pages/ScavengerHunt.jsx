@@ -1,7 +1,46 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 export function ScavengerHunt() {
+  const [parks, setParks] = useState([])
+  const [mickeys, setMickeys] = useState([])
+
+  const [selectedPark, setSelectedPark] = useState({
+    id: undefined,
+    name: '',
+    areaOfTheParks: [],
+  })
+
+  const [parkDropdownShown, setParkDropdownShown] = useState(false)
+
+  useEffect(function () {
+    async function fetchParks() {
+      const response = await fetch(`/api/Parks`)
+      const json = await response.json()
+      setParks(json)
+    }
+    fetchParks()
+  }, [])
+
+  useEffect(
+    function () {
+      if (selectedPark.id === undefined) {
+        return
+      }
+      async function fetchMickeys() {
+        const response = await fetch(
+          `/api/HiddenMickeys/Parks/${selectedPark.id}`
+        )
+        const json = await response.json()
+        setMickeys(json)
+      }
+      fetchMickeys()
+    },
+    [selectedPark.id]
+  )
+
+  console.log(mickeys)
+
   return (
     <>
       <header className="hunt-header">
@@ -9,12 +48,32 @@ export function ScavengerHunt() {
       </header>
       <article className="shDropdown">
         <div className="dropdown">
-          <span>Park Name</span>
-          <div className="dropdown-content">
-            <p>Magic Kingdom</p>
-            <p>Epcot</p>
-            <p>Hollywood Studios</p>
-            <p>Animal Kingdom</p>
+          <button
+            className="dropdown-parksb-hunt"
+            onClick={function () {
+              setParkDropdownShown(!parkDropdownShown)
+            }}
+          >
+            Park Name
+          </button>
+          <div
+            className={`dropdown-parksc-hunt ${
+              parkDropdownShown ? 'show' : ''
+            }`}
+          >
+            {parks.map(function (park) {
+              return (
+                <button
+                  key={park.id}
+                  onClick={function () {
+                    setSelectedPark(park)
+                    setParkDropdownShown(false)
+                  }}
+                >
+                  {park.name}
+                </button>
+              )
+            })}
           </div>
         </div>
       </article>
@@ -23,8 +82,16 @@ export function ScavengerHunt() {
         click on the clue for a more specific hint before riding.
       </p>
       <ul className="scavenger-hunt">
-        <li>
-          <h4>Location: Mickey’s PhilharMagic</h4>
+        {mickeys.map(function (mickeyDetails) {
+          return (
+            <li key={mickeyDetails.id}>
+              <h4>Location: {mickeyDetails.location}</h4>
+              <p>Clue: {mickeyDetails.clue}</p>
+            </li>
+          )
+        })}
+        {/* <li>
+          <h4>Location: </h4>
           <p>
             Clue: In the attraction’s 3-D film itself, there is a series of
             Hidden Mickeys. (There are 3 possible options)
@@ -43,7 +110,7 @@ export function ScavengerHunt() {
             Clue: A classic Hidden Mickey can be found on the short rock wall to
             the left of the restaurant’s check-in desk.
           </p>
-        </li>
+        </li> */}
       </ul>
       <article className="buttons">
         <button className="hunt-page-home">

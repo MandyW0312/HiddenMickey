@@ -39,6 +39,27 @@ namespace HiddenMickey.Controllers
             
         }
 
+        [HttpGet("Parks/{parkId}")]
+        public async Task<ActionResult<IEnumerable<HiddenMickey.Models.HiddenMickey>>> GetHiddenMickeysInSpecificPark(int parkId)
+        {
+            // Uses the database context in `_context` to request all of the HiddenMickeys, sort
+            // them by row id and return them as a JSON array.
+            var park = await _context.Parks.
+                                        Include(park => park.AreaOfTheParks).
+                                        ThenInclude(areaOfThePark => areaOfThePark.HiddenMickeys).
+                                        Where(park => park.Id == parkId).
+                                        FirstOrDefaultAsync();
+
+            IEnumerable<HiddenMickey.Models.HiddenMickey> allMickeys = new List<HiddenMickey.Models.HiddenMickey>();    
+            foreach (var areaOfThePark in park.AreaOfTheParks) {
+                allMickeys = allMickeys.Concat(areaOfThePark.HiddenMickeys);
+            }                   
+            //Shuffle Mickeys
+            var someMickeys = allMickeys.Take(2);
+
+                return Ok(someMickeys);
+            
+        }
         // GET: api/HiddenMickeys/5
         //
         // Fetches and returns a specific hiddenMickey by finding it by id. The id is specified in the

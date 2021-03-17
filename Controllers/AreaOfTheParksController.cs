@@ -31,11 +31,11 @@ namespace HiddenMickey.Controllers
         // Returns a list of all your AreaOfTheParks
         //
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<AreaOfThePark>>> GetAreaOfTheParks()
+        public async Task<ActionResult<IEnumerable<AreaOfThePark>>> GetAreaOfTheParks(int parkId)
         {
             // Uses the database context in `_context` to request all of the AreaOfTheParks, sort
             // them by row id and return them as a JSON array.
-            return await _context.AreaOfTheParks.Include(area => area.HiddenMickeys).OrderBy(row => row.Id).ToListAsync();
+            return await _context.AreaOfTheParks.Include(area => area.HiddenMickeys).Where(area => area.ParkId == parkId).OrderBy(row => row.Id).ToListAsync();
         }
 
         // GET: api/AreaOfTheParks/5

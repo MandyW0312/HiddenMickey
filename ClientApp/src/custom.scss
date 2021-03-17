@@ -80,7 +80,7 @@ main {
   align-items: center;
   background-color: #fb94b9;
   width: 175px;
-  margin-left: 100px;
+  margin: 0 auto;
 }
 
 .dropdown {
@@ -153,10 +153,10 @@ ul.results {
   background-color: #75b9df;
   color: black;
   max-width: 275px;
-  margin-left: 50px;
   padding: 0;
   list-style: none;
   display: none;
+  margin: 0 auto;
 
   a:link,
   a:visited,
@@ -221,7 +221,7 @@ ul.specific-mickey {
   flex-direction: column;
   justify-content: center;
   max-width: 275px;
-  margin-left: 30px;
+  margin: 0 auto;
 }
 
 article.buttons {
@@ -259,13 +259,60 @@ p.disclaimer {
   padding: 0.5rem;
   max-width: 12rem;
   text-align: center;
-  margin-left: 5.5rem;
+  margin: 10px auto;
+}
+
+.dropdown-parksb-hunt {
+  background-color: #fff858;
+  color: black;
+  padding: 8px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-parksb-hunt:hover,
+.dropdown-parksb-hunt:focus {
+  background-color: #fb94b9;
+}
+
+.dropdown:hover .dropdown-parksb-hunt {
+  background-color: #3e8e41;
+}
+
+.dropdown-parksc-hunt {
+  display: none;
+  position: absolute;
+  background-color: #ff6c1b;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown-parksc-hunt.show {
+  display: block;
+}
+
+.dropdown-parksc-hunt button {
+  background-color: #fffeff;
+  border-radius: 10px;
+  margin: 2px;
+  color: black;
+  padding: 0 10px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-parksc-hunt button:hover {
+  background-color: #f1f1f1;
 }
 
 ul.scavenger-hunt {
   background-color: #acc163;
   list-style: none;
   padding: 0.5rem;
+  margin: 10px auto;
   li {
     h4 {
       margin-left: 5px;
@@ -309,7 +356,7 @@ button.hunt-page-home {
   padding: 0.5rem;
   max-width: 12rem;
   text-align: center;
-  margin-left: 5.5rem;
+  margin: 5px auto;
 }
 
 .update-mickey {
@@ -321,7 +368,7 @@ button.hunt-page-home {
   flex-direction: column;
   justify-content: center;
   max-width: 275px;
-  margin-left: 30px;
+  margin: 10px auto;
 }
 
 .update-buttons {
@@ -353,6 +400,7 @@ button.hunt-page-home {
 p.error {
   background-color: #f4d726;
   padding: 0.5rem;
+  margin: 10px auto;
 }
 
 .addDropdown {
@@ -410,7 +458,7 @@ p.error {
   flex-direction: column;
   justify-content: center;
   max-width: 275px;
-  margin-left: 30px;
+  margin: 10px auto;
 }
 
 .add-text {
