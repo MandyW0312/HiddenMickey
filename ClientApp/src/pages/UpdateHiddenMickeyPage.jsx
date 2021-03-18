@@ -26,17 +26,6 @@ export function UpdateHiddenMickeyPage() {
 
   const [errorMessage, setErrorMessage] = useState('')
 
-  const [updatedMickey, setUpdatedMickey] = useState({
-    id: mickey.id,
-    location: '',
-    clue: '',
-    hint: '',
-    areaOfTheParkId: mickey.areaOfTheParkId,
-  })
-  const [locationText, setLocationText] = useState('')
-  const [clueText, setClueText] = useState('')
-  const [hintText, setHintText] = useState('')
-
   useEffect(
     function () {
       async function fetchMickey() {
@@ -46,16 +35,16 @@ export function UpdateHiddenMickeyPage() {
         setMickey(json)
       }
       fetchMickey()
-      setLocationText(mickey.location)
-      setClueText(mickey.clue)
-      setHintText(mickey.hint)
     },
     // @ts-ignore
-    [params.id, mickey.location, mickey.clue, mickey.hint]
+    [params.id]
   )
 
   useEffect(
     function () {
+      if (mickey.areaOfTheParkId === undefined) {
+        return
+      }
       async function fetchArea() {
         const response = await fetch(
           `/api/AreaOfTheParks/${mickey.areaOfTheParkId}`
@@ -70,6 +59,9 @@ export function UpdateHiddenMickeyPage() {
 
   useEffect(
     function () {
+      if (area.parkId === undefined) {
+        return
+      }
       async function fetchPark() {
         const response = await fetch(`/api/Parks/${area.parkId}`)
         const json = await response.json()
@@ -83,32 +75,23 @@ export function UpdateHiddenMickeyPage() {
   const handleFieldChange = (event) => {
     const value = event.target.value
     const field = event.target.name
-    if (field === 'location') {
-      setLocationText(value)
-    } else if (field === 'clue') {
-      setClueText(value)
-    } else if (field === 'hint') {
-      setHintText(value)
-    }
-    const newMickey = { ...mickey, [field]: value }
-    setUpdatedMickey(newMickey)
-  }
 
-  console.log(updatedMickey)
+    const updatedMickey = { ...mickey, [field]: value }
+    setMickey(updatedMickey)
+  }
 
   async function handleFormSubmit(event) {
     event.preventDefault()
-    console.log(updatedMickey)
 
     const response = await fetch(`/api/HiddenMickeys/${mickey.id}`, {
       method: 'PUT',
       headers: { 'content-type': 'application/json' },
-      body: JSON.stringify(updatedMickey),
+      body: JSON.stringify(mickey),
     })
 
-    const json = await response.json()
-
     if (response.status === 400) {
+      const json = await response.json()
+
       setErrorMessage(Object.values(json.errors).join(' '))
     }
 
@@ -135,7 +118,7 @@ export function UpdateHiddenMickeyPage() {
               // @ts-ignore
               cols="30"
               name="location"
-              value={locationText}
+              value={mickey.location}
               onChange={handleFieldChange}
             ></textarea>
           </li>
@@ -147,7 +130,7 @@ export function UpdateHiddenMickeyPage() {
               // @ts-ignore
               cols="30"
               name="clue"
-              value={clueText}
+              value={mickey.clue}
               onChange={handleFieldChange}
             ></textarea>
           </li>
@@ -159,7 +142,7 @@ export function UpdateHiddenMickeyPage() {
               // @ts-ignore
               cols="30"
               name="hint"
-              value={hintText}
+              value={mickey.hint}
               onChange={handleFieldChange}
             ></textarea>
           </li>
