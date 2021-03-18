@@ -42,6 +42,9 @@ export function HiddenMickey() {
 
   useEffect(
     function () {
+      if (mickey.areaOfTheParkId === undefined) {
+        return
+      }
       async function fetchArea() {
         const response = await fetch(
           `/api/AreaOfTheParks/${mickey.areaOfTheParkId}`
@@ -57,6 +60,9 @@ export function HiddenMickey() {
 
   useEffect(
     function () {
+      if (area.parkId === undefined) {
+        return
+      }
       async function fetchPark() {
         const response = await fetch(`/api/Parks/${area.parkId}`)
         const json = await response.json()
