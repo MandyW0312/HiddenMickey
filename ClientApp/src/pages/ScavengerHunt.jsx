@@ -90,27 +90,6 @@ export function ScavengerHunt() {
             </li>
           )
         })}
-        {/* <li>
-          <h4>Location: </h4>
-          <p>
-            Clue: In the attraction’s 3-D film itself, there is a series of
-            Hidden Mickeys. (There are 3 possible options)
-          </p>
-        </li>
-        <li>
-          <h4>Location: The Barnstormer</h4>
-          <p>
-            Clue: Prior to entering the queue area, take a peek at the ticket
-            booth advertising the Great Goofini.
-          </p>
-        </li>
-        <li>
-          <h4>Location: Be Our Guest Restaurant</h4>
-          <p>
-            Clue: A classic Hidden Mickey can be found on the short rock wall to
-            the left of the restaurant’s check-in desk.
-          </p>
-        </li> */}
       </ul>
       <article className="buttons">
         <button className="hunt-page-home">
