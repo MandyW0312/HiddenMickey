@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export function Home() {
   return (
-    <div>
+    <div className="home-page">
       <header className="home-header">
         <h1>Hidden Mickeys</h1>
       </header>
@@ -19,13 +19,13 @@ export function Home() {
             <Link to={'/hunt'}>Scavenger Hunt</Link>
           </button>
         </div>
-        <footer>
-          <p>
-            &copy; This Hidden Mickey App was created with &hearts; by Mandy
-            Wade 2021
-          </p>
-        </footer>
       </main>
+      <footer>
+        <p>
+          &copy; This Hidden Mickey App was created with &hearts; by Mandy Wade
+          2021
+        </p>
+      </footer>
     </div>
   )
 }
