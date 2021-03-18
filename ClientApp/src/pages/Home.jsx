@@ -8,19 +8,17 @@ export function Home() {
         <h1>Hidden Mickeys</h1>
       </header>
       <main>
-        <section>
+        <div className="container">
           <button className="browse">
             <Link to={'/view'}>Browse All</Link>
           </button>
           <button className="add">
             <Link to={'/add'}>Add</Link>
           </button>
-        </section>
-        <section className="second">
           <button className="scavenger">
             <Link to={'/hunt'}>Scavenger Hunt</Link>
           </button>
-        </section>
+        </div>
         <footer>
           <p>
             &copy; This Hidden Mickey App was created with &hearts; by Mandy

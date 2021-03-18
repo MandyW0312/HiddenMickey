@@ -31,12 +31,12 @@ a:active {
 }
 
 main {
-  & section {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
+  & .container {
+    position: relative;
+
     & button {
       background-color: black;
+      font-size: 20px;
       color: white;
       display: flex;
       justify-content: center;
@@ -44,25 +44,40 @@ main {
 
       &.browse {
         border-radius: 50%;
-        width: 70px;
-        height: 70px;
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: 78px;
+        right: 205px;
       }
       &.add {
         border-radius: 50%;
-        width: 70px;
-        height: 70px;
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: 78px;
+        left: 210px;
       }
       &.scavenger {
         border-radius: 50%;
-        width: 100px;
-        height: 100px;
+        width: 150px;
+        height: 150px;
+        position: absolute;
+        top: 150px;
+        left: 115px;
       }
     }
   }
-  & section.second {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
+}
+
+footer {
+  color: black;
+  background-color: #f9d70b;
+  margin-top: 80px;
+  padding: 0.25rem;
+  position: absolute;
+  top: 400px;
+  text-align: center;
 }
 
 //View All Hidden Mickeys Page
@@ -481,12 +496,4 @@ button.add-page {
     color: #060000;
     text-decoration: none;
   }
-}
-
-footer {
-  color: black;
-  background-color: #f9d70b;
-  margin-top: 80px;
-  padding: 0.25rem;
-  text-align: center;
 }
