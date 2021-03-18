@@ -11,31 +11,29 @@ import { UpdateHiddenMickeyPage } from './pages/UpdateHiddenMickeyPage'
 export function App() {
   return (
     <>
-      <section>
-        <Switch>
-          <Route exact path="/home">
-            <Home />
-          </Route>
-          <Route exact path="/view">
-            <HiddenMickeys />
-          </Route>
-          <Route exact path="/HiddenMickeys/:id">
-            <HiddenMickey />
-          </Route>
-          <Route exact path="/update/:id">
-            <UpdateHiddenMickeyPage />
-          </Route>
-          <Route exact path="/add">
-            <AddAHiddenMickeyPage />
-          </Route>
-          <Route exact path="/hunt">
-            <ScavengerHunt />
-          </Route>
-          <Route exact path="*">
-            Sorry, this page is Not Found!
-          </Route>
-        </Switch>
-      </section>
+      <Switch>
+        <Route exact path="/home">
+          <Home />
+        </Route>
+        <Route exact path="/view">
+          <HiddenMickeys />
+        </Route>
+        <Route exact path="/HiddenMickeys/:id">
+          <HiddenMickey />
+        </Route>
+        <Route exact path="/update/:id">
+          <UpdateHiddenMickeyPage />
+        </Route>
+        <Route exact path="/add">
+          <AddAHiddenMickeyPage />
+        </Route>
+        <Route exact path="/hunt">
+          <ScavengerHunt />
+        </Route>
+        <Route exact path="*">
+          Sorry, this page is Not Found!
+        </Route>
+      </Switch>
     </>
   )
 }
