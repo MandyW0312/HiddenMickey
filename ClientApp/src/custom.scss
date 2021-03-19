@@ -2,6 +2,13 @@
   font: 16px / 1 sans-serif;
 }
 
+@font-face {
+  font-family: 'waltograph';
+  src: url('./fonts/NewWaltDisneyFontRegular-BPen.ttf') format('truetype');
+  font-weight: normal;
+  font-size: normal;
+}
+
 html {
   height: 100vh;
 }
@@ -42,6 +49,8 @@ a:active {
   color: black;
   padding: 0.25rem;
   width: 100%;
+  font-family: 'waltograph';
+  font-size: 30px;
 }
 
 main {
@@ -106,6 +115,8 @@ footer {
   color: #fffeff;
   padding: 0.25rem;
   text-align: center;
+  font-family: 'waltograph';
+  font-size: 30px;
 }
 
 .hmDropdown {
@@ -245,6 +256,8 @@ button.list-page-home {
   background-color: #f9a3c5;
   padding: 0.25rem;
   text-align: center;
+  font-family: 'waltograph';
+  font-size: 30px;
 }
 
 ul.specific-mickey {
@@ -286,6 +299,8 @@ article.buttons {
   background-color: #3155b4;
   padding: 0.25rem;
   text-align: center;
+  font-family: 'waltograph';
+  font-size: 30px;
 }
 
 p.disclaimer {
@@ -342,6 +357,11 @@ p.disclaimer {
   background-color: #f1f1f1;
 }
 
+// .toggle {
+//   margin-right: 5px;
+//   background-color: black;
+// }
+
 ul.scavenger-hunt {
   background-color: #acc163;
   list-style: none;
@@ -352,6 +372,8 @@ ul.scavenger-hunt {
       margin-left: 5px;
       margin-bottom: 0;
       margin-top: 0;
+      // display: flex;
+      // flex-direction: row;
     }
     h4 + p {
       border-bottom: thin solid black;
@@ -383,6 +405,8 @@ button.hunt-page-home {
   background-color: #e70909;
   padding: 0.25rem;
   text-align: center;
+  font-family: 'waltograph';
+  font-size: 30px;
 }
 
 .update-message {
