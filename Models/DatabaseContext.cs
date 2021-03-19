@@ -18,15 +18,11 @@ namespace HiddenMickey.Models
         public DbSet<Park> Parks { get; set; }
         public DbSet<AreaOfThePark> AreaOfTheParks { get; set; }
         public DbSet<ScavengerHunt> ScavengerHunts { get; set; }
+        public DbSet<ScavengerHuntMickey> ScavengerHuntMickeys { get; set; }
         
         
         
         
-        
-        
-        
-        
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (LOG_SQL_STATEMENTS_IN_DEVELOPMENT && Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Development")
