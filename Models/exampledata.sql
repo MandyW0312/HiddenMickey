@@ -1,4 +1,4 @@
-TRUNCATE TABLE "HiddenMickeys", "AreaOfTheParks", "Parks" RESTART IDENTITY;
+TRUNCATE TABLE "HiddenMickeys", "AreaOfTheParks", "Parks", "ScavengerHunts", "ScavengerHuntMickeys" RESTART IDENTITY;
 
 INSERT INTO "Parks" ("Name") VALUES ('Magic Kingdom');
 INSERT INTO "Parks" ("Name") VALUES ('Epcot');
