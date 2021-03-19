@@ -50,11 +50,24 @@ namespace HiddenMickey.Controllers
                                         Where(park => park.Id == parkId).
                                         FirstOrDefaultAsync();
 
-            IEnumerable<HiddenMickey.Models.HiddenMickey> allMickeys = new List<HiddenMickey.Models.HiddenMickey>();    
+            var allMickeys = new List<HiddenMickey.Models.HiddenMickey>();    
             foreach (var areaOfThePark in park.AreaOfTheParks) {
-                allMickeys = allMickeys.Concat(areaOfThePark.HiddenMickeys);
+                foreach(var mickey in areaOfThePark.HiddenMickeys) {
+                    allMickeys.Add(mickey);
+                }
             }                   
             //Shuffle Mickeys
+            
+            for (var rightIndex = allMickeys.Count() - 1; rightIndex >= 1; rightIndex--)
+            {
+                var randomNumberGenerator = new Random();
+                var leftIndex = randomNumberGenerator.Next(rightIndex);
+                var leftMickey = allMickeys[rightIndex];
+                var rightMickey = allMickeys[leftIndex];
+                allMickeys[rightIndex] = rightMickey;
+                allMickeys[leftIndex] = leftMickey;
+            }
+
             var someMickeys = allMickeys.Take(2);
 
                 return Ok(someMickeys);
