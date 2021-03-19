@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-export function ScavengerHunt() {
+export function Icon({ name, style = 'fas' }) {
+  return <i className={`${style} fa-${name}`}></i>
+}
+
+export function ScavengerHunt(done) {
   const [parks, setParks] = useState([])
   const [mickeys, setMickeys] = useState([])
+  const [userPressedClue, setUserPressedClue] = useState(true)
 
   const [selectedPark, setSelectedPark] = useState({
     id: undefined,
@@ -39,7 +44,9 @@ export function ScavengerHunt() {
     [selectedPark.id]
   )
 
-  console.log(mickeys)
+  // function HintModal() {
+  //   return <div className="modal">{mickeyDetails.hint}</div>
+  // }
 
   return (
     <>
@@ -77,6 +84,7 @@ export function ScavengerHunt() {
           </div>
         </div>
       </article>
+      {/* {userPressedClue ? <HintModal /> : <> </>} */}
       <p className="disclaimer">
         Please Note: We recommend that if a Hidden Mickey is during a ride to
         click on the clue for a more specific hint before riding.
@@ -86,7 +94,14 @@ export function ScavengerHunt() {
           return (
             <li key={mickeyDetails.id}>
               <h4>Location: {mickeyDetails.location}</h4>
-              <p>Clue: {mickeyDetails.clue}</p>
+              <button
+                onClick={function (event) {
+                  setUserPressedClue(true)
+                }}
+              >
+                Clue:
+              </button>
+              {mickeyDetails.clue}
             </li>
           )
         })}
