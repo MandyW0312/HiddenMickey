@@ -44,10 +44,6 @@ export function ScavengerHunt(done) {
     [selectedPark.id]
   )
 
-  // function HintModal() {
-  //   return <div className="modal">{mickeyDetails.hint}</div>
-  // }
-
   return (
     <>
       <header className="hunt-header">
@@ -84,7 +80,6 @@ export function ScavengerHunt(done) {
           </div>
         </div>
       </article>
-      {/* {userPressedClue ? <HintModal /> : <> </>} */}
       <p className="disclaimer">
         Please Note: We recommend that if a Hidden Mickey is during a ride to
         click on the clue for a more specific hint before riding.
@@ -94,14 +89,8 @@ export function ScavengerHunt(done) {
           return (
             <li key={mickeyDetails.id}>
               <h4>Location: {mickeyDetails.location}</h4>
-              <button
-                onClick={function (event) {
-                  setUserPressedClue(true)
-                }}
-              >
-                Clue:
-              </button>
-              {mickeyDetails.clue}
+              <p>Clue: {mickeyDetails.clue}</p>
+              <p>Hint: {mickeyDetails.hint}</p>
             </li>
           )
         })}

@@ -122,15 +122,61 @@ namespace HiddenMickey.Controllers
         // new values for the record.
         //
         [HttpPost]
-        public async Task<ActionResult<ScavengerHunt>> PostScavengerHunt(ScavengerHunt scavengerHunt)
+        public async Task<ActionResult<ScavengerHunt>> PostScavengerHunt(int parkId)
         {
             // Indicate to the database context we want to add this new record
-            _context.ScavengerHunts.Add(scavengerHunt);
+            var newScavengerHunt = new ScavengerHunt();
+
+            _context.ScavengerHunts.Add(newScavengerHunt);
             await _context.SaveChangesAsync();
+
+
+            var park = await _context.Parks.
+                                        Include(park => park.AreaOfTheParks).
+                                        ThenInclude(areaOfThePark => areaOfThePark.HiddenMickeys).
+                                        Where(park => park.Id == parkId).
+                                        FirstOrDefaultAsync();
+
+            var allMickeys = new List<HiddenMickey.Models.HiddenMickey>();    
+            foreach (var areaOfThePark in park.AreaOfTheParks) {
+                foreach(var mickey in areaOfThePark.HiddenMickeys) {
+                    allMickeys.Add(mickey);
+                }
+            }                   
+            //Shuffle Mickeys
+            
+            for (var rightIndex = allMickeys.Count() - 1; rightIndex >= 1; rightIndex--)
+            {
+                var randomNumberGenerator = new Random();
+                var leftIndex = randomNumberGenerator.Next(rightIndex);
+                var leftMickey = allMickeys[rightIndex];
+                var rightMickey = allMickeys[leftIndex];
+                allMickeys[rightIndex] = rightMickey;
+                allMickeys[leftIndex] = leftMickey;
+            }
+
+            var someMickeys = allMickeys.Take(2);
+
+            foreach(var mickey in someMickeys) {
+                var scavengerHuntMickey = new ScavengerHuntMickey{
+                    HiddenMickeyId = mickey.Id,
+                    ScavengerHuntId = newScavengerHunt.Id,
+                };
+                _context.ScavengerHuntMickeys.Add(scavengerHuntMickey);
+            }
+
+            await _context.SaveChangesAsync();
+
+            var scavengerHuntWithMickeys = await _context.ScavengerHunts.
+                                            Where(scavengerHunt => scavengerHunt.Id == newScavengerHunt.Id).
+                                            Include(scavengerHunt => scavengerHunt.ScavengerHuntMickeys).
+                                            ThenInclude(scavengerHuntMickey => scavengerHuntMickey.HiddenMickey).
+                                            FirstOrDefaultAsync();
 
             // Return a response that indicates the object was created (status code `201`) and some additional
             // headers with details of the newly created object.
-            return CreatedAtAction("GetScavengerHunt", new { id = scavengerHunt.Id }, scavengerHunt);
+            return CreatedAtAction("GetScavengerHunt", new { id = scavengerHuntWithMickeys.Id }, scavengerHuntWithMickeys);
+                
         }
 
         // DELETE: api/ScavengerHunts/5
