@@ -17,6 +17,9 @@ namespace HiddenMickey.Models
         public DbSet<HiddenMickey> HiddenMickeys { get; set; }
         public DbSet<Park> Parks { get; set; }
         public DbSet<AreaOfThePark> AreaOfTheParks { get; set; }
+        public DbSet<ScavengerHunt> ScavengerHunts { get; set; }
+        
+        
         
         
         
