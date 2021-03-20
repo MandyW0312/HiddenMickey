@@ -48,9 +48,6 @@ export function AddAHiddenMickeyPage() {
     setAddedMickey(newMickeyInfo)
   }
 
-  console.log(selectedArea.id)
-  console.log(addedMickey)
-
   async function handleFormSubmit(event) {
     event.preventDefault()
 
