@@ -5,10 +5,9 @@ export function Icon({ name, style = 'fas' }) {
   return <i className={`${style} fa-${name}`}></i>
 }
 
-export function ScavengerHunt(done) {
+export function ScavengerHunt() {
   const [parks, setParks] = useState([])
   const [mickeys, setMickeys] = useState([])
-  const [userPressedClue, setUserPressedClue] = useState(true)
 
   const [selectedPark, setSelectedPark] = useState({
     id: undefined,
@@ -34,15 +33,21 @@ export function ScavengerHunt(done) {
       }
       async function fetchMickeys() {
         const response = await fetch(
-          `/api/HiddenMickeys/Parks/${selectedPark.id}`
+          `/api/ScavengerHunts?parkId=${selectedPark.id}`,
+          {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+          }
         )
         const json = await response.json()
-        setMickeys(json)
+        setMickeys(json.scavengerHuntMickeys)
       }
       fetchMickeys()
     },
     [selectedPark.id]
   )
+
+  console.log(mickeys)
 
   return (
     <>
@@ -68,7 +73,7 @@ export function ScavengerHunt(done) {
               return (
                 <button
                   key={park.id}
-                  onClick={function () {
+                  onClick={function (event) {
                     setSelectedPark(park)
                     setParkDropdownShown(false)
                   }}
@@ -82,15 +87,19 @@ export function ScavengerHunt(done) {
       </article>
       <p className="disclaimer">
         Please Note: We recommend that if a Hidden Mickey is during a ride to
-        click on the clue for a more specific hint before riding.
+        read the more specific hint before riding.
       </p>
       <ul className="scavenger-hunt">
-        {mickeys.map(function (mickeyDetails) {
+        {mickeys.map(function (mickey) {
           return (
-            <li key={mickeyDetails.id}>
-              <h4>Location: {mickeyDetails.location}</h4>
-              <p>Clue: {mickeyDetails.clue}</p>
-              <p>Hint: {mickeyDetails.hint}</p>
+            <li key={mickey.hiddenMickey.id}>
+              <h4>Location: {mickey.hiddenMickey.location}</h4>
+              <p>
+                <span>Clue:</span> {mickey.hiddenMickey.clue}
+              </p>
+              <p className="hint">
+                <span>Hint:</span> {mickey.hiddenMickey.hint}
+              </p>
             </li>
           )
         })}

@@ -221,7 +221,7 @@ ul.results.show {
   display: block;
 }
 
-li {
+li.list {
   h4 {
     margin: 0;
     padding: 0.25rem;
@@ -375,11 +375,17 @@ ul.scavenger-hunt {
       // display: flex;
       // flex-direction: row;
     }
-    h4 + p {
+    p {
+      margin: 5px;
+    }
+    p.hint {
       border-bottom: thin solid black;
-      padding: 5px;
     }
   }
+}
+
+span {
+  font-weight: bold;
 }
 
 button.hunt-page-home {
