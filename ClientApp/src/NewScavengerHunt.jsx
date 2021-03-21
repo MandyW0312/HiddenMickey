@@ -3,13 +3,6 @@ import { Link, useHistory } from 'react-router-dom'
 
 export function NewScavengerHunt() {
   const [parks, setParks] = useState([])
-  const [scavenger, setScavenger] = useState([])
-
-  const [selectedPark, setSelectedPark] = useState({
-    id: undefined,
-    name: '',
-    areaOfTheParks: [],
-  })
 
   const [parkDropdownShown, setParkDropdownShown] = useState(false)
 
@@ -24,29 +17,14 @@ export function NewScavengerHunt() {
     fetchParks()
   }, [])
 
-  useEffect(
-    function () {
-      if (selectedPark.id === undefined) {
-        return
-      }
-      async function fetchMickeys() {
-        const response = await fetch(
-          `/api/ScavengerHunts?parkId=${selectedPark.id}`,
-          {
-            method: 'POST',
-            headers: { 'content-type': 'application/json' },
-          }
-        )
-        const json = await response.json()
-        setScavenger(
-          json.scavengerHuntMickeys.map((mickey) => mickey.scavengerHuntId)
-        )
-      }
-      fetchMickeys()
-      history.push(`/hunt/${scavenger[0]}`)
-    },
-    [selectedPark.id]
-  )
+  async function createScavengerHunt(park) {
+    const response = await fetch(`/api/ScavengerHunts?parkId=${park.id}`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+    })
+    const scavengerHunt = await response.json()
+    history.push(`/hunt/${scavengerHunt.id}`)
+  }
 
   return (
     <>
@@ -74,7 +52,7 @@ export function NewScavengerHunt() {
                 <button
                   key={park.id}
                   onClick={function (event) {
-                    setSelectedPark(park)
+                    createScavengerHunt(park)
                     setParkDropdownShown(false)
                   }}
                 >

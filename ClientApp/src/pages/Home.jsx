@@ -10,7 +10,7 @@ export function Home() {
       <main>
         <div className="container">
           <button className="browse">
-            <Link to={'/view'}>Browse All</Link>
+            <Link to={'/view'}>Browse</Link>
           </button>
           <button className="add">
             <Link to={'/add'}>Add</Link>

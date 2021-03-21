@@ -6,12 +6,13 @@ export function ScavengerHunt() {
   const [mickeys, setMickeys] = useState([])
 
   const params = useParams()
+  const scavengerHuntId = params.id
 
   useEffect(
     function () {
       async function fetchMickey() {
         // @ts-ignore
-        const response = await fetch(`/api/ScavengerHunts/${params.id}`)
+        const response = await fetch(`/api/ScavengerHunts/${scavengerHuntId}`)
         const json = await response.json()
 
         setMickeys(json.scavengerHuntMickeys)
@@ -19,13 +20,13 @@ export function ScavengerHunt() {
       fetchMickey()
     },
     // @ts-ignore
-    [params.id]
+    [scavengerHuntId]
   )
 
   return (
     <>
       <header className="hunt-header">
-        <h2>Scavenger Hunt # </h2>
+        <h2>Scavenger Hunt # {scavengerHuntId} </h2>
       </header>
       <p className="disclaimer">
         Please Note: We recommend that if a Hidden Mickey is during a ride to
