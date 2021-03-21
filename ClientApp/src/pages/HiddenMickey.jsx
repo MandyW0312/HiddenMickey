@@ -105,7 +105,7 @@ export function HiddenMickey() {
           Delete
         </button>
         <button className="specific-buttons">
-          <Link to={'/home'}>Home</Link>
+          <Link to={'/'}>Home</Link>
         </button>
         <button className="specific-buttons">
           <Link to={`/update/${mickey.id}`}>Update</Link>

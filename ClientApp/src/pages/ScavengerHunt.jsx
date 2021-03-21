@@ -53,7 +53,7 @@ export function ScavengerHunt() {
       </ul>
       <article className="buttons">
         <button className="hunt-page-home">
-          <Link to={'/home'}>Home</Link>
+          <Link to={'/'}>Home</Link>
         </button>
       </article>
     </>

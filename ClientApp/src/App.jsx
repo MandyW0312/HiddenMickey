@@ -7,13 +7,13 @@ import { HiddenMickeys } from './pages/HiddenMickeys'
 import { Home } from './pages/Home'
 import { ScavengerHunt } from './pages/ScavengerHunt'
 import { UpdateHiddenMickeyPage } from './pages/UpdateHiddenMickeyPage'
-import { NewScavengerHunt } from './NewScavengerHunt'
+import { NewScavengerHunt } from './pages/NewScavengerHunt'
 
 export function App() {
   return (
     <>
       <Switch>
-        <Route exact path="/home">
+        <Route exact path="/">
           <Home />
         </Route>
         <Route exact path="/view">

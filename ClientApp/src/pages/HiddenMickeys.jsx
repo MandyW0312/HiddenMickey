@@ -122,7 +122,7 @@ export function HiddenMickeys() {
 
       <article className="buttons">
         <button className="list-page-home">
-          <Link to={'/home'}>Home</Link>
+          <Link to={'/'}>Home</Link>
         </button>
       </article>
     </>

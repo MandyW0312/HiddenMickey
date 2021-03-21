@@ -69,7 +69,7 @@ export function NewScavengerHunt() {
       </p>
       <article className="buttons">
         <button className="new-page-home">
-          <Link to={'/home'}>Home</Link>
+          <Link to={'/'}>Home</Link>
         </button>
       </article>
     </>

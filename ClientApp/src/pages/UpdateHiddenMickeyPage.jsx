@@ -153,7 +153,7 @@ export function UpdateHiddenMickeyPage() {
           Submit
         </button>
         <button className="update-buttons">
-          <Link to={'/home'}>Home</Link>
+          <Link to={'/'}>Home</Link>
         </button>
       </article>
     </>

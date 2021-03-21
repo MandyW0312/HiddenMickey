@@ -203,7 +203,7 @@ export function AddAHiddenMickeyPage() {
           Submit
         </button>
         <button className="add-page">
-          <Link to={'/home'}>Home</Link>
+          <Link to={'/'}>Home</Link>
         </button>
       </article>
     </>
