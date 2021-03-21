@@ -6,6 +6,7 @@ export function ScavengerHunt() {
   const [mickeys, setMickeys] = useState([])
 
   const params = useParams()
+  // @ts-ignore
   const scavengerHuntId = params.id
 
   useEffect(

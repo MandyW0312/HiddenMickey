@@ -112,7 +112,7 @@ export function HiddenMickeys() {
             <li className="list" key={mickeyDetails.id}>
               <h4>Location: {mickeyDetails.location} </h4>
               <p>
-                <Link to={`/HiddenMickeys/${mickeyDetails.id}`}>Clue: </Link>
+                <Link to={`/HiddenMickeys/${mickeyDetails.id}`}>Clue:</Link>{' '}
                 {mickeyDetails.clue}
               </p>
             </li>

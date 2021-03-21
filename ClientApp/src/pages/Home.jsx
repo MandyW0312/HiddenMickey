@@ -22,8 +22,8 @@ export function Home() {
       </main>
       <footer>
         <p>
-          &copy; This Hidden Mickey App was created with &hearts; by Mandy Wade
-          2021
+          &copy; This Hidden Mickey App was created with &hearts; by Mandy (a
+          smidge of Jason, some of Liz, and a whole lot of Gavin) 2021
         </p>
       </footer>
     </div>
