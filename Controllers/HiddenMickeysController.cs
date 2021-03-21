@@ -68,7 +68,7 @@ namespace HiddenMickey.Controllers
                 allMickeys[leftIndex] = leftMickey;
             }
 
-            var someMickeys = allMickeys.Take(2);
+            var someMickeys = allMickeys.Take(10);
 
                 return Ok(someMickeys);
             

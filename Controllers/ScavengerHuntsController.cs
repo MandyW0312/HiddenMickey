@@ -159,7 +159,7 @@ namespace HiddenMickey.Controllers
                 allMickeys[leftIndex] = leftMickey;
             }
 
-            var someMickeys = allMickeys.Take(2);
+            var someMickeys = allMickeys.Take(10);
 
             foreach(var mickey in someMickeys) {
                 var scavengerHuntMickey = new ScavengerHuntMickey{
