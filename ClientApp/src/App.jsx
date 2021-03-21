@@ -7,6 +7,7 @@ import { HiddenMickeys } from './pages/HiddenMickeys'
 import { Home } from './pages/Home'
 import { ScavengerHunt } from './pages/ScavengerHunt'
 import { UpdateHiddenMickeyPage } from './pages/UpdateHiddenMickeyPage'
+import { NewScavengerHunt } from './NewScavengerHunt'
 
 export function App() {
   return (
@@ -28,6 +29,9 @@ export function App() {
           <AddAHiddenMickeyPage />
         </Route>
         <Route exact path="/hunt">
+          <NewScavengerHunt />
+        </Route>
+        <Route exact path="/hunt/:id">
           <ScavengerHunt />
         </Route>
         <Route exact path="*">
