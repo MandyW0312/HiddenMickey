@@ -35,7 +35,10 @@ export function ScavengerHunt() {
         {mickeys.map(function (mickey) {
           return (
             <li key={mickey.hiddenMickey.id}>
-              <h4>Location: {mickey.hiddenMickey.location}</h4>
+              <h4>
+                <input type="checkbox"></input>Location:
+                {mickey.hiddenMickey.location}
+              </h4>
               <p>
                 <span>Clue:</span> {mickey.hiddenMickey.clue}
               </p>
