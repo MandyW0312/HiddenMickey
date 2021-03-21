@@ -50,7 +50,7 @@ export function NewScavengerHunt() {
 
   return (
     <>
-      <header className="hunt-header">
+      <header className="new-header">
         <h2>New Scavenger Hunt</h2>
         <p>Select which Park you are in and would like a Scavenger Hunt for.</p>
       </header>
@@ -85,13 +85,15 @@ export function NewScavengerHunt() {
           </div>
         </div>
       </article>
-      <p className="disclaimer">
+      <p className="new-disclaimer">
         Please Note: We recommend that if a Hidden Mickey is during a ride to
         read the more specific hint before riding.
       </p>
-      <button className="hunt-page-home">
-        <Link to={'/home'}>Home</Link>
-      </button>
+      <article className="buttons">
+        <button className="new-page-home">
+          <Link to={'/home'}>Home</Link>
+        </button>
+      </article>
     </>
   )
 }

@@ -292,19 +292,17 @@ article.buttons {
     text-decoration: none;
   }
 }
-
-// Scavenger Hunt Page
-
-.hunt-header {
-  background-color: #3155b4;
+// New Scavenger Hunt Page
+.new-header {
+  background-color: #7ef96d;
   padding: 0.25rem;
   text-align: center;
   font-family: 'waltograph';
   font-size: 30px;
 }
 
-p.disclaimer {
-  background-color: #ff6c1b;
+p.new-disclaimer {
+  background-color: #00fe31;
   padding: 0.5rem;
   max-width: 12rem;
   text-align: center;
@@ -312,7 +310,7 @@ p.disclaimer {
 }
 
 .dropdown-parksb-hunt {
-  background-color: #fff858;
+  background-color: #ffb22f;
   color: black;
   padding: 8px;
   font-size: 16px;
@@ -322,17 +320,17 @@ p.disclaimer {
 
 .dropdown-parksb-hunt:hover,
 .dropdown-parksb-hunt:focus {
-  background-color: #fb94b9;
+  background-color: #d80322;
 }
 
 .dropdown:hover .dropdown-parksb-hunt {
-  background-color: #3e8e41;
+  background-color: #d80322;
 }
 
 .dropdown-parksc-hunt {
   display: none;
   position: absolute;
-  background-color: #ff6c1b;
+  background-color: #d80322;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   padding: 12px 16px;
@@ -355,6 +353,41 @@ p.disclaimer {
 
 .dropdown-parksc-hunt button:hover {
   background-color: #f1f1f1;
+}
+
+button.new-page-home {
+  background-color: #ffb22f;
+  color: black;
+  width: 80px;
+  margin: 3px;
+  border-radius: 20px;
+
+  a:link,
+  a:visited,
+  a:focus,
+  a:hover,
+  a:active {
+    color: black;
+    text-decoration: none;
+  }
+}
+
+// Scavenger Hunt Page
+
+.hunt-header {
+  background-color: #3155b4;
+  padding: 0.25rem;
+  text-align: center;
+  font-family: 'waltograph';
+  font-size: 30px;
+}
+
+p.disclaimer {
+  background-color: #ff6c1b;
+  padding: 0.5rem;
+  max-width: 12rem;
+  text-align: center;
+  margin: 10px auto;
 }
 
 ul.scavenger-hunt {
