@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 export function NewScavengerHunt() {
   const [parks, setParks] = useState([])
@@ -89,6 +89,9 @@ export function NewScavengerHunt() {
         Please Note: We recommend that if a Hidden Mickey is during a ride to
         read the more specific hint before riding.
       </p>
+      <button className="hunt-page-home">
+        <Link to={'/home'}>Home</Link>
+      </button>
     </>
   )
 }
