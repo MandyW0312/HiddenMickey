@@ -36,7 +36,7 @@ export function ScavengerHunt() {
           return (
             <li key={mickey.hiddenMickey.id}>
               <h4>
-                <input type="checkbox"></input>Location:
+                <input type="checkbox"></input>Location:{' '}
                 {mickey.hiddenMickey.location}
               </h4>
               <p>
