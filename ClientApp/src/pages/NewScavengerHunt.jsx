@@ -50,6 +50,7 @@ export function NewScavengerHunt() {
             {parks.map(function (park) {
               return (
                 <button
+                  className="click"
                   key={park.id}
                   onClick={function (event) {
                     createScavengerHunt(park)

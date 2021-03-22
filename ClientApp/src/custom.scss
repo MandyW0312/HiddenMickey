@@ -162,7 +162,7 @@ footer {
   display: none;
   position: absolute;
   background-color: #fb94b9;
-  min-width: 160px;
+  min-width: 130px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   padding: 12px 16px;
   z-index: 1;
@@ -176,12 +176,11 @@ footer {
 .dropdown-parksc button,
 .dropdown-areasc button {
   background-color: #fffeff;
-  border-radius: 10px;
-  margin: 2px;
   color: black;
-  padding: 0 10px;
   text-decoration: none;
   display: block;
+  padding: 10px;
+  margin: 4px;
 }
 
 .dropdown-parksc button:hover,
@@ -343,7 +342,7 @@ p.new-disclaimer {
   display: none;
   position: absolute;
   background-color: #3168b9;
-  min-width: 160px;
+  min-width: 130px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   padding: 12px 16px;
   z-index: 1;
@@ -355,12 +354,11 @@ p.new-disclaimer {
 
 .dropdown-parksc-hunt button {
   background-color: #fffeff;
-  border-radius: 10px;
-  margin: 2px;
   color: black;
-  padding: 0 10px;
   text-decoration: none;
   display: block;
+  padding: 8px;
+  margin: 4px;
 }
 
 .dropdown-parksc-hunt button:hover {
@@ -522,6 +520,11 @@ p.error {
   margin-left: 30px;
 }
 
+.click {
+  padding: 8px;
+  margin: 2px;
+}
+
 .dropdown-parksb-add,
 .dropdown-areasb-add {
   background-color: #f4d726;
@@ -537,9 +540,9 @@ p.error {
   display: none;
   position: absolute;
   background-color: #f41111;
-  min-width: 160px;
+  min-width: 140px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  padding: 12px 16px;
+  padding: 16px 20px;
   z-index: 1;
 }
 

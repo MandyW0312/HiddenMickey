@@ -102,6 +102,7 @@ export function AddAHiddenMickeyPage() {
                 {parks.map(function (park) {
                   return (
                     <button
+                      className="click"
                       key={park.id}
                       onClick={function (event) {
                         event.preventDefault()
@@ -135,6 +136,7 @@ export function AddAHiddenMickeyPage() {
                 {selectedPark.areaOfTheParks.map(function (area) {
                   return (
                     <button
+                      className="click"
                       key={area.id}
                       onClick={function (event) {
                         event.preventDefault()
