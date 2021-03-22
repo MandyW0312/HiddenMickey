@@ -8,7 +8,7 @@ export function AddAHiddenMickeyPage() {
     areaOfTheParks: [],
   })
 
-  const [setSelectedArea] = useState({
+  const [selectedArea, setSelectedArea] = useState({
     id: undefined,
     name: '',
     hiddenMickeys: [],
