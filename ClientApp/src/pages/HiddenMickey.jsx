@@ -84,7 +84,7 @@ export function HiddenMickey() {
     })
 
     if (response.status === 200 || response.status === 204) {
-      history.push('/home')
+      history.push('/')
     }
   }
 
