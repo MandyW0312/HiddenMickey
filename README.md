@@ -1,4 +1,4 @@
-#[HiddenMickey] (https://hidden-mickey.herokuapp.com/)
+# [HiddenMickey](https://hidden-mickey.herokuapp.com/)
 
 ![Getting Started](home-page.png)
 
